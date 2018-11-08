@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import styled from 'styled-components'
-import mock from './mock/hand-points.js'
 
 const AppContainer = styled.div`
   display: flex;
@@ -10,12 +9,25 @@ const AppContainer = styled.div`
 `
 
 class App extends Component {
+  state = {
+    mockData: []
+  }
+
+  componentDidMount() {
+    this.setState( { mockData: [] })
+  }
 
   handPoint() {
-    console.log('handPoint()')
+    this.setState(prevSate => ({
+       mockData: [
+         ...prevSate.mockData,
+         { id: 4, date: new Date().toString() }
+        ]
+    }))
   }
 
   render() {
+    const { mockData } = this.state;
     return (
       <AppContainer>
         <button onClick={ () => this.handPoint() }>
@@ -30,7 +42,7 @@ class App extends Component {
           </thead>
           <tbody>
           {
-            mock.map((val, index) =>
+            mockData.map((val, index) =>
               <tr key={index}>
                 <td>{ val.id }</td>
                 <td>{ val.date }</td>
