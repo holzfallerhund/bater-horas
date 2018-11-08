@@ -8,6 +8,18 @@ const AppContainer = styled.div`
   align-items: center;
 `
 
+const TableFooter = (props) => {
+  if( props.length > 0)
+    return (
+      <tfoot>
+        <tr>
+          <td>{ props.length }</td>
+          <td> TOTAL </td>
+        </tr>
+      </tfoot>
+  )
+}
+
 class App extends Component {
   state = {
     mockData: []
@@ -52,6 +64,7 @@ class App extends Component {
               </tr>
             )
           }
+          { TableFooter(mockData) }
           </tbody>
         </table>
       </AppContainer>
