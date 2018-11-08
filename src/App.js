@@ -21,7 +21,10 @@ class App extends Component {
     this.setState(prevSate => ({
        mockData: [
          ...prevSate.mockData,
-         { id: 4, date: new Date().toString() }
+         {
+            id: prevSate.mockData.length,
+            date: new Date().toString()
+          }
         ]
     }))
   }
