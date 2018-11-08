@@ -9,6 +9,12 @@ const AppContainer = styled.div`
 `
 
 const TableFooter = (props) => {
+  /** TODO
+   * Ter um Ramda, que vai:
+   * 1- Pegar diferença horas duas datas. Precisa ser par.
+   * 2- Somar com as diferenteças encontradas, entre duas datas no array
+   * 3- Mostar o valor no lugar de `TOTAL`
+   */
   if( props.length > 0)
     return (
       <tfoot>
