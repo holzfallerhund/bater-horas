@@ -1,5 +1,15 @@
 import React, { Component } from 'react';
 import styled from 'styled-components'
+import {
+  apply,
+  flip,
+  map,
+  pipe,
+  pluck,
+  splitEvery,
+  subtract,
+  sum
+} from 'ramda'
 
 const AppContainer = styled.div`
   display: flex;
@@ -7,44 +17,56 @@ const AppContainer = styled.div`
   justify-content: center;
   align-items: center;
 `
+const msToHours = ms => ms / 1000 / 60 / 60
 
-const TableFooter = (props) => {
-  /** TODO
-   * Ter um Ramda, que vai:
-   * 1- Pegar diferença horas duas datas. Precisa ser par.
-   * 2- Somar com as diferenteças encontradas, entre duas datas no array
-   * 3- Mostar o valor no lugar de `TOTAL`
-   */
-  if( props.length > 0)
+const date = pipe(
+  pluck('date'),
+  splitEvery(2),
+  map(apply(flip(subtract))),
+  sum,
+  msToHours
+)
+
+const TableFooter = ({ dates, hours }) => {
+  if (dates.length > 0) {
     return (
-      <tfoot>
+      <tfoot style={ {backgroundColor: "pink" } }>
         <tr>
-          <td>{ props.length }</td>
-          <td> TOTAL </td>
+          <td>{ hours }</td>
         </tr>
       </tfoot>
-  )
+    )
+  }
+
+  return null
 }
 
 class App extends Component {
   state = {
-    mockData: []
+    mockData: [],
+    hours: 0
   }
 
   componentDidMount() {
-    this.setState( { mockData: [] })
+    this.setState( { mockData: [], hours: 0 })
   }
 
   handPoint() {
-    this.setState(prevSate => ({
-       mockData: [
-         ...prevSate.mockData,
-         {
-            id: prevSate.mockData.length,
-            date: new Date().toString()
-          }
-        ]
-    }))
+    const hours =
+      this.state.mockData.length % 2 === 0
+        ? { hours: date(this.state.mockData) }
+        : {}
+
+    const appointment = {
+      date: new Date()
+    }
+
+    console.log(hours, this.state.mockData)
+
+    this.setState({
+      mockData: this.state.mockData.concat([appointment]),
+      ...hours
+    })
   }
 
   render() {
@@ -63,15 +85,16 @@ class App extends Component {
           </thead>
           <tbody>
           {
-            mockData.map((val, index) =>
+            (mockData.length % 2 === 0
+              ? mockData
+              : mockData).map((val, index) =>
               <tr key={index}>
-                <td>{ val.id }</td>
-                <td>{ val.date }</td>
+                <td>{ new String(val.date) }</td>
               </tr>
             )
           }
-          { TableFooter(mockData) }
           </tbody>
+          { TableFooter({ dates: mockData, hours: this.state.hours }) }
         </table>
       </AppContainer>
     );
