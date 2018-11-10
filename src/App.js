@@ -79,7 +79,6 @@ class App extends Component {
         <table>
           <thead>
             <tr>
-              <th>ID</th>
               <th>Horário</th>
             </tr>
           </thead>
@@ -89,7 +88,7 @@ class App extends Component {
               ? mockData
               : mockData).map((val, index) =>
               <tr key={index}>
-                <td>{ new String(val.date) }</td>
+                <td>{ val.date.toString() }</td>
               </tr>
             )
           }
