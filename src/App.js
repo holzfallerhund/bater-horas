@@ -10,6 +10,7 @@ import {
   subtract,
   sum
 } from 'ramda'
+import { format } from 'date-fns'
 
 const AppContainer = styled.div`
   display: flex;
@@ -27,12 +28,24 @@ const date = pipe(
   msToHours
 )
 
-const TableFooter = ({ dates, hours }) => {
+const TableCell = ({ appointments }) => {
+  return (
+    (appointments.length % 2 === 0
+      ? appointments
+      : appointments).map((appointment, index) =>
+      <tr key={index}>
+        <td>{ format(appointment.date, 'YYYY-MM-DD HH:mm:ss') }</td>
+      </tr>
+    )
+  )
+}
+
+const TableFooter = ({ dates, pointedHours  }) => {
   if (dates.length > 0) {
     return (
       <tfoot style={ {backgroundColor: "pink" } }>
         <tr>
-          <td>{ hours }</td>
+          <td>{ pointedHours  }</td>
         </tr>
       </tfoot>
     )
@@ -43,34 +56,34 @@ const TableFooter = ({ dates, hours }) => {
 
 class App extends Component {
   state = {
-    mockData: [],
-    hours: 0
+    appointments: [],
+    pointedHours : 0
   }
 
   componentDidMount() {
-    this.setState( { mockData: [], hours: 0 })
+    this.setState( { appointments: [], pointedHours : 0 })
   }
 
   handPoint() {
-    const hours =
-      this.state.mockData.length % 2 === 0
-        ? { hours: date(this.state.mockData) }
+    const pointedHours  =
+      this.state.appointments.length % 2 === 0
+        ? { pointedHours : date(this.state.appointments) }
         : {}
 
     const appointment = {
       date: new Date()
     }
 
-    console.log(hours, this.state.mockData)
+    console.log(pointedHours , this.state.appointments)
 
     this.setState({
-      mockData: this.state.mockData.concat([appointment]),
-      ...hours
+      appointments: this.state.appointments.concat([appointment]),
+      ...pointedHours
     })
   }
 
   render() {
-    const { mockData } = this.state;
+    const { appointments } = this.state;
     return (
       <AppContainer>
         <button onClick={ () => this.handPoint() }>
@@ -83,17 +96,14 @@ class App extends Component {
             </tr>
           </thead>
           <tbody>
-          {
-            (mockData.length % 2 === 0
-              ? mockData
-              : mockData).map((val, index) =>
-              <tr key={index}>
-                <td>{ val.date.toString() }</td>
-              </tr>
-            )
-          }
+          <TableCell
+            appointments={ appointments }
+          />
           </tbody>
-          { TableFooter({ dates: mockData, hours: this.state.hours }) }
+          <TableFooter
+            dates={ appointments }
+            pointedHours = { this.state.pointedHours  }
+          />
         </table>
       </AppContainer>
     );
