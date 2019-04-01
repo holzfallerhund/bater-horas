@@ -74,8 +74,6 @@ class App extends Component {
       date: new Date()
     }
 
-    console.log(pointedHours , this.state.appointments)
-
     this.setState({
       appointments: this.state.appointments.concat([appointment]),
       ...pointedHours
