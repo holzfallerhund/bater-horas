@@ -10,7 +10,7 @@ import {
   subtract,
   sum
 } from 'ramda'
-import { format } from 'date-fns'
+import Table from './Table/Table'
 
 const AppContainer = styled.div`
   display: flex;
@@ -28,46 +28,21 @@ const date = pipe(
   msToHours
 )
 
-const TableCell = ({ appointments }) => {
-  return (
-    (appointments.length % 2 === 0
-      ? appointments
-      : appointments).map((appointment, index) =>
-      <tr key={index}>
-        <td>{ format(appointment.date, 'YYYY-MM-DD HH:mm:ss') }</td>
-      </tr>
-    )
-  )
-}
-
-const TableFooter = ({ dates, pointedHours  }) => {
-  if (dates.length > 0) {
-    return (
-      <tfoot style={ {backgroundColor: "pink" } }>
-        <tr>
-          <td>{ pointedHours  }</td>
-        </tr>
-      </tfoot>
-    )
-  }
-
-  return null
-}
 
 class App extends Component {
   state = {
     appointments: [],
-    pointedHours : 0
+    pointedHours: 0
   }
 
   componentDidMount() {
-    this.setState( { appointments: [], pointedHours : 0 })
+    this.setState({ appointments: [], pointedHours: 0 })
   }
 
   handPoint() {
-    const pointedHours  =
+    const pointedHours =
       this.state.appointments.length % 2 === 0
-        ? { pointedHours : date(this.state.appointments) }
+        ? { pointedHours: date(this.state.appointments) }
         : {}
 
     const appointment = {
@@ -81,28 +56,16 @@ class App extends Component {
   }
 
   render() {
-    const { appointments } = this.state;
+    const { appointments, pointedHours } = this.state;
     return (
       <AppContainer>
-        <button onClick={ () => this.handPoint() }>
+        <button onClick={() => this.handPoint()}>
           Fazer apontamento
         </button>
-        <table>
-          <thead>
-            <tr>
-              <th>Horário</th>
-            </tr>
-          </thead>
-          <tbody>
-          <TableCell
-            appointments={ appointments }
-          />
-          </tbody>
-          <TableFooter
-            dates={ appointments }
-            pointedHours = { this.state.pointedHours  }
-          />
-        </table>
+        <Table
+          appointments={appointments}
+          pointedHours={pointedHours}
+        />
       </AppContainer>
     );
   }
