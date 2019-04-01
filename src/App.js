@@ -54,21 +54,21 @@ class App extends Component {
     const { appointments, pointedHours } = this.state;
     return (
       <Fragment>
-      <Navbar />
-      <section class="section">
-        <div class="container">
-          <button
-            className='button'
-            onClick={() => this.handPoint()}>
-            Fazer apontamento
+        <Navbar />
+        <section class="section">
+          <div class="container">
+            <button
+              className='button'
+              onClick={() => this.handPoint()}>
+              Fazer apontamento
           </button>
-          <Table
-            appointments={appointments}
-            pointedHours={pointedHours}
-          />
-        </div>
-      </section>
-      <NavbarBotton />
+            <Table
+              appointments={appointments}
+              pointedHours={pointedHours}
+            />
+          </div>
+        </section>
+        <NavbarBotton />
       </Fragment>
     );
   }
