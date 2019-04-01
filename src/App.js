@@ -1,6 +1,5 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import 'bulma/css/bulma.min.css'
-import styled from 'styled-components'
 import {
   apply,
   flip,
@@ -11,14 +10,9 @@ import {
   subtract,
   sum
 } from 'ramda'
+import Navbar from './Navbar/Navbar'
 import Table from './Table/Table'
 
-const AppContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-`
 const msToHours = ms => ms / 1000 / 60 / 60
 
 const date = pipe(
@@ -59,17 +53,22 @@ class App extends Component {
   render() {
     const { appointments, pointedHours } = this.state;
     return (
-      <AppContainer>
-        <button
-          className='button'
-          onClick={() => this.handPoint()}>
-          Fazer apontamento
-        </button>
-        <Table
-          appointments={appointments}
-          pointedHours={pointedHours}
-        />
-      </AppContainer>
+      <Fragment>
+      <Navbar />
+      <section class="section">
+        <div class="container">
+          <button
+            className='button'
+            onClick={() => this.handPoint()}>
+            Fazer apontamento
+          </button>
+          <Table
+            appointments={appointments}
+            pointedHours={pointedHours}
+          />
+        </div>
+      </section>
+      </Fragment>
     );
   }
 }
