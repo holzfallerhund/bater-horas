@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import 'bulma/css/bulma.min.css'
 import styled from 'styled-components'
 import {
   apply,
@@ -59,7 +60,9 @@ class App extends Component {
     const { appointments, pointedHours } = this.state;
     return (
       <AppContainer>
-        <button onClick={() => this.handPoint()}>
+        <button
+          className='button'
+          onClick={() => this.handPoint()}>
           Fazer apontamento
         </button>
         <Table

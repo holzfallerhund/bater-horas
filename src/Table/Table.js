@@ -1,19 +1,17 @@
 import React from 'react'
-import TableCell from './TableCell'
+import TableBody from './TableCell'
 import TableFooter from './TableFooter'
 
 const Table = ({ appointments, pointedHours }) => (
-    <table>
+    <table className='table'>
         <thead>
             <tr>
                 <th>Horário</th>
             </tr>
         </thead>
-        <tbody>
-            <TableCell
-                appointments={appointments}
-            />
-        </tbody>
+        <TableBody
+            appointments={appointments}
+        />
         <TableFooter
             dates={appointments}
             pointedHours={pointedHours}

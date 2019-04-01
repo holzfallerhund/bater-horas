@@ -1,16 +1,18 @@
 import React from 'react'
 import { format } from 'date-fns'
 
-const TableCell = ({ appointments }) => {
+const TableBody = ({ appointments }) => {
     return (
-        (appointments.length % 2 === 0
-            ? appointments
-            : appointments).map((appointment, index) =>
-                <tr key={index}>
-                    <td>{format(appointment.date, 'YYYY-MM-DD HH:mm:ss')}</td>
-                </tr>
-            )
+        <tbody>
+            {(appointments.length % 2 === 0
+                ? appointments
+                : appointments).map((appointment, index) =>
+                    <tr key={index}>
+                        <th>{format(appointment.date, 'YYYY-MM-DD HH:mm:ss')}</th>
+                    </tr>
+                )}
+        </tbody>
     )
 }
 
-export default TableCell
+export default TableBody
