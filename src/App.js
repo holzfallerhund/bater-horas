@@ -11,6 +11,7 @@ import {
   sum
 } from 'ramda'
 import Navbar from './Navbar/Navbar'
+import NavbarBotton from './NavbarBotton/NavbarBotton'
 import Table from './Table/Table'
 
 const msToHours = ms => ms / 1000 / 60 / 60
@@ -68,6 +69,7 @@ class App extends Component {
           />
         </div>
       </section>
+      <NavbarBotton />
       </Fragment>
     );
   }
