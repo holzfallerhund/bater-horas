@@ -24,7 +24,6 @@ const date = pipe(
   msToHours
 )
 
-
 class App extends Component {
   state = {
     appointments: [],
