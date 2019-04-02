@@ -1,15 +1,18 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { PureComponent } from 'react'
+import { evolve, assoc } from 'ramda'
+import NavbarDropdownUp from './NavbarDropdownUp'
 
 export default class NavbarBotton extends PureComponent {
     state = {
         isActive: false,
-        isActiveSelect: false
+        values: {
+            year: '',
+            month: ''
+        }
     }
 
     render() {
         const isActive = this.state.isActive && ' is-active'
-        const isActiveSelect = this.state.isActiveSelect && ' is-active'
 
         return (
             <nav className='navbar is-light is-fixed-bottom' role='navigation' aria-label='main navigation'>
@@ -33,26 +36,22 @@ export default class NavbarBotton extends PureComponent {
                 </div>
                 <div id='botton-navbar' className={`navbar-menu ${isActive}`}>
                     <div className='navbar-start'>
-                        <div className={'navbar-item has-dropdown has-dropdown-up ' + isActiveSelect} >
-                            <a
-                                className='navbar-link'
-                                onClick={() => {
-                                    this.setState({
-                                        isActiveSelect: !this.state.isActiveSelect
-                                    })
-                                }}>
-                                2019
-                            </a>
-                            <div className='navbar-dropdown'>
-                                <a href='/' className='navbar-item'>
-                                    2019
-                                </a>
-                                <hr class="navbar-divider" />
-                                <a href='/' className='navbar-item'>
-                                    Adicionar
-                                </a>
-                            </div>
-                        </div>
+                        <NavbarDropdownUp
+                            name='year'
+                            contents={['2019', '2018']}
+                            selected={this.state.values.year}
+                            onSelectChose={(name, value) => {
+                                this.setState(evolve({ values: assoc(name, value) }))
+                            }}
+                        />
+                        <NavbarDropdownUp
+                            name='month'
+                            contents={['Março', 'Abril']}
+                            selected={this.state.values.month}
+                            onSelectChose={(name, value) => {
+                                this.setState(evolve({ values: assoc(name, value) }))
+                            }}
+                        />
                     </div>
                 </div>
             </nav>
