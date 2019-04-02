@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { PureComponent } from 'react'
 import { evolve, assoc } from 'ramda'
 import NavbarDropdownUp from './NavbarDropdownUp'
@@ -18,7 +19,6 @@ export default class NavbarBotton extends PureComponent {
             <nav className='navbar is-light is-fixed-bottom' role='navigation' aria-label='main navigation'>
                 <div className='navbar-brand'>
                     <a
-                        href='/#'
                         role='button'
                         className={`navbar-burger burger ${isActive}`}
                         aria-label='menu'
@@ -52,6 +52,11 @@ export default class NavbarBotton extends PureComponent {
                                 this.setState(evolve({ values: assoc(name, value) }))
                             }}
                         />
+                    </div>
+                    <div className='navbar-end'>
+                        <a className='navbar-item'>
+                            Novo ponto
+                        </a>
                     </div>
                 </div>
             </nav>
