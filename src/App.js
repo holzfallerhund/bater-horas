@@ -1,4 +1,6 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
+import { withFirebase } from './Firebase';
 import 'bulma/css/bulma.min.css'
 import {
   apply,
@@ -27,11 +29,23 @@ const date = pipe(
 class App extends Component {
   state = {
     appointments: [],
-    pointedHours: 0
+    pointedHours: 0,
+    authUser: null
   }
 
   componentDidMount() {
     this.setState({ appointments: [], pointedHours: 0 })
+    this.listener = this.props.firebase.auth.onAuthStateChanged(
+      authUser => {
+        authUser
+          ? this.setState({ authUser })
+          : this.setState({ authUser: null });
+      },
+    );
+  }
+
+  componentWillUnmount() {
+    this.listener();
   }
 
   handPoint() {
@@ -53,8 +67,8 @@ class App extends Component {
   render() {
     const { appointments, pointedHours } = this.state;
     return (
-      <Fragment>
-        <Navbar />
+      <Router>
+        <Navbar authUser={this.state.authUser} />
         <section class="section">
           <div class="container">
             <button
@@ -69,9 +83,9 @@ class App extends Component {
           </div>
         </section>
         <NavbarBotton />
-      </Fragment>
+      </Router>
     );
   }
 }
 
-export default App;
+export default withFirebase(App);

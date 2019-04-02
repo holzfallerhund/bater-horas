@@ -45,7 +45,7 @@ export default class NavBar extends PureComponent {
                                     <strong>Exportar</strong>
                                 </a>
                             </div>
-                            <SignOutButton />
+                            { !this.props.authUser && <SignOutButton /> }
                         </div>
                     </div>
                 </div>
