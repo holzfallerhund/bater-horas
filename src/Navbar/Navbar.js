@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react'
+import SignOutButton from '../Auth/SignOut'
 
 export default class NavBar extends PureComponent {
     state = {
@@ -44,6 +45,7 @@ export default class NavBar extends PureComponent {
                                     <strong>Exportar</strong>
                                 </a>
                             </div>
+                            <SignOutButton />
                         </div>
                     </div>
                 </div>
