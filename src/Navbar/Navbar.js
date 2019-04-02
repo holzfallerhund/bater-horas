@@ -17,7 +17,7 @@ export default class NavBar extends PureComponent {
                     <a
                         href='/#'
                         role='button'
-                        className='navbar-burger burger'
+                        className={ `navbar-burger burger ${isActive}` }
                         aria-label='menu'
                         aria-expanded='false'
                         data-target='navbarBasicExample'

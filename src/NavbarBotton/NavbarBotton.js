@@ -9,10 +9,10 @@ export default class NavbarBotton extends PureComponent {
     render() {
         const isActive = this.state.isActive && ' is-active'
         return (
-            <nav className='navbar is-light is-fixed-bottom' role='navigation' aria-label='dropdown navigation'>
-                <div className='navbar-menu'>
+            <nav className='navbar is-light is-fixed-bottom' role='navigation' aria-label='main navigation'>
+                <div className='navbar-brand'>
                     <div className='navbar-start'>
-                        <div className={'navbar-item has-dropdown has-dropdown-up' + isActive} >
+                        <div className={'navbar-item is-hidden-touch has-dropdown has-dropdown-up ' + isActive} >
                             <a
                                 className='navbar-link'
                                 onClick={() => {
