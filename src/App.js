@@ -6,14 +6,14 @@ import Navigation from './Navigation'
 import 'bulma/css/bulma.min.css'
 import * as ROUTES from './constants/routes';
 
-import Navbar from './Navbar/Navbar'
+import Navbar from './Navbar'
 import Home from './Home'
-import SignUpPage from './Auth/SignUp'
+import SignUpPage from './SignUp'
 import SignInPage from './Sign'
 import PasswordForgetPage from './PasswordForget'
 import AccountPage from './Account'
 import AdminPage from './Admin'
-import NavbarBotton from './NavbarBotton/NavbarBotton'
+import NavbarBotton from './NavbarBotton'
 
 
 class App extends Component {

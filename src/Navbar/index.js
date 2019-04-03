@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react'
-import SignOutButton from '../Auth/SignOut'
+import SignOutButton from '../SignOut'
 
 export default class NavBar extends PureComponent {
     state = {
