@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { withAuthorization } from '../Session';
 import Table from '../Table'
 import {
     apply,
@@ -64,4 +65,6 @@ export class Home extends Component {
   }
 }
 
-export default Home
+const condition = authUser => !!authUser;
+
+export default withAuthorization(condition)(Home);
