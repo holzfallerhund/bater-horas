@@ -14,7 +14,7 @@ export default class NavBar extends PureComponent {
         return (
             <nav className='navbar is-primary is-fixed-top' role='navigation' aria-label='main navigation'>
                 <div className='navbar-brand'>
-                    <a className='navbar-item' href='https://bulma.io'>
+                    <a className='navbar-item' href='/'>
                         <img src='https://bulma.io/images/bulma-logo.png' width='112' height='28' alt='Bulma logo' />
                     </a>
                     <a
@@ -36,7 +36,9 @@ export default class NavBar extends PureComponent {
                 </div>
                 <div id='navbarBasicExample' className={`navbar-menu ${isActive}`}>
                     <div className='navbar-start'>
-                        <a className='navbar-item'>
+                        <a
+                            className='navbar-item'
+                            href='/account'>
                             Olá, <UserName />
                         </a>
                     </div>
