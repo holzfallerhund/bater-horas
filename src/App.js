@@ -8,6 +8,11 @@ import * as ROUTES from './constants/routes';
 
 import Navbar from './Navbar/Navbar'
 import Home from './Home'
+import SignUpPage from './Auth/SignUp'
+import SignInPage from './Sign'
+import PasswordForgetPage from './PasswordForget'
+import AccountPage from './Account'
+import AdminPage from './Admin'
 import NavbarBotton from './NavbarBotton/NavbarBotton'
 
 
@@ -38,6 +43,14 @@ class App extends Component {
           <Navbar authUser={this.state.authUser} />
           <Navigation />
           <Route path={ROUTES.HOME} component={Home} />
+          <Route path={ROUTES.SIGN_UP} component={SignUpPage} />
+          <Route path={ROUTES.SIGN_IN} component={SignInPage} />
+          <Route
+            path={ROUTES.PASSWORD_FORGET}
+            component={PasswordForgetPage}
+          />
+          <Route path={ROUTES.ACCOUNT} component={AccountPage} />
+          <Route path={ROUTES.ADMIN} component={AdminPage} />
           <NavbarBotton />
         </Router>
       </AuthUserContext.Provider>
