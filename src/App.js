@@ -6,14 +6,12 @@ import Navigation from './Navigation'
 import 'bulma/css/bulma.min.css'
 import * as ROUTES from './constants/routes';
 
-import Navbar from './Navbar'
 import Home from './Home'
 import SignUpPage from './SignUp'
 import SignInPage from './Sign'
 import PasswordForgetPage from './PasswordForget'
 import AccountPage from './Account'
 import AdminPage from './Admin'
-import NavbarBotton from './NavbarBotton'
 
 
 class App extends Component {
@@ -40,8 +38,7 @@ class App extends Component {
     return (
       <AuthUserContext.Provider value={this.state.authUser}>
         <Router>
-          <Navbar authUser={this.state.authUser} />
-          <Navigation />
+          <Navigation authUser={ this.state.authUser }/>
           <Route path={ROUTES.HOME} component={Home} />
           <Route path={ROUTES.SIGN_UP} component={SignUpPage} />
           <Route path={ROUTES.SIGN_IN} component={SignInPage} />
@@ -51,7 +48,6 @@ class App extends Component {
           />
           <Route path={ROUTES.ACCOUNT} component={AccountPage} />
           <Route path={ROUTES.ADMIN} component={AdminPage} />
-          <NavbarBotton />
         </Router>
       </AuthUserContext.Provider>
     );

@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { PureComponent } from 'react'
 import SignOutButton from '../SignOut'
 
@@ -18,7 +19,7 @@ export default class NavBar extends PureComponent {
                     <a
                         href='/#'
                         role='button'
-                        className={ `navbar-burger burger ${isActive}` }
+                        className={`navbar-burger burger ${isActive}`}
                         aria-label='menu'
                         aria-expanded='false'
                         data-target='navbarBasicExample'
@@ -32,20 +33,20 @@ export default class NavBar extends PureComponent {
                         <span aria-hidden='true'></span>
                     </a>
                 </div>
-                <div id='navbarBasicExample' className={ `navbar-menu ${isActive}` }>
+                <div id='navbarBasicExample' className={`navbar-menu ${isActive}`}>
                     <div className='navbar-start'>
-                        <a href='/#' className='navbar-item'>
+                        <a className='navbar-item'>
                             Olá, Osmar Petry
                         </a>
                     </div>
                     <div className='navbar-end'>
                         <div className='navbar-item'>
                             <div className='buttons'>
-                                <a href='/#' className='button is-primary'>
+                                <a className='button is-primary'>
                                     <strong>Exportar</strong>
                                 </a>
+                                <SignOutButton />
                             </div>
-                            { !this.props.authUser && <SignOutButton /> }
                         </div>
                     </div>
                 </div>
