@@ -4,7 +4,7 @@ import { AuthUserContext, withAuthorization } from '../Session';
 
 const UserName = () => (
     <AuthUserContext.Consumer>
-    {authUser => authUser.email }
+    {authUser => authUser.displayName || authUser.email }
   </AuthUserContext.Consumer>
 );
 
