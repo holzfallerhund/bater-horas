@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { PureComponent } from 'react'
 import SignOutButton from '../SignOut'
+import UserName from '../UserName'
 
 export default class NavBar extends PureComponent {
     state = {
@@ -36,7 +37,7 @@ export default class NavBar extends PureComponent {
                 <div id='navbarBasicExample' className={`navbar-menu ${isActive}`}>
                     <div className='navbar-start'>
                         <a className='navbar-item'>
-                            Olá, Osmar Petry
+                            Olá, <UserName />
                         </a>
                     </div>
                     <div className='navbar-end'>
