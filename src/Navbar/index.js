@@ -1,9 +1,11 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { PureComponent } from 'react'
+import { withRouter } from 'react-router-dom';
 import SignOutButton from '../SignOut'
 import UserName from '../UserName'
+import * as ROUTES from '../constants/routes';
 
-export default class NavBar extends PureComponent {
+class NavBarContent extends PureComponent {
     state = {
         isActive: false
     }
@@ -14,11 +16,14 @@ export default class NavBar extends PureComponent {
         return (
             <nav className='navbar is-primary is-fixed-top' role='navigation' aria-label='main navigation'>
                 <div className='navbar-brand'>
-                    <a className='navbar-item' href='/'>
+                    <a
+                        className='navbar-item'
+                        onClick={() => {
+                            this.props.history.push(ROUTES.HOME)
+                        }}>
                         <img src='https://bulma.io/images/bulma-logo.png' width='112' height='28' alt='Bulma logo' />
                     </a>
                     <a
-                        href='/#'
                         role='button'
                         className={`navbar-burger burger ${isActive}`}
                         aria-label='menu'
@@ -38,7 +43,9 @@ export default class NavBar extends PureComponent {
                     <div className='navbar-start'>
                         <a
                             className='navbar-item'
-                            href='/account'>
+                            onClick={() => {
+                                this.props.history.push(ROUTES.ACCOUNT)
+                            }}>
                             Olá, <UserName />
                         </a>
                     </div>
@@ -58,3 +65,6 @@ export default class NavBar extends PureComponent {
     }
 }
 
+const Navbar = withRouter(NavBarContent);
+
+export default Navbar
