@@ -9,7 +9,6 @@ export default class NavbarDropdownUp extends PureComponent {
 
     render() {
         const isActive = this.state.isActive && ' is-active'
-        console.log(this.props)
 
         return (
             <div className={'navbar-item has-dropdown has-dropdown-up ' + isActive} >
