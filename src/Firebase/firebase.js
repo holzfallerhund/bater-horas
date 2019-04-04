@@ -47,6 +47,15 @@ class Firebase {
     user = uid => this.db.ref(`users/${uid}`);
 
     users = () => this.db.ref('users');
+
+    userUid = () => this.auth.currentUser.uid
+
+    writeUserData = (name, email) =>
+        this.db.ref('users/' + this.userUid()).set({
+            username: name,
+            email: email
+        })
+
 }
 
 export default Firebase;
