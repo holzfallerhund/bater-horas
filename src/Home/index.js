@@ -12,6 +12,8 @@ import {
   subtract,
   sum
 } from 'ramda'
+import { compose } from 'recompose';
+import { withFirebase } from '../Firebase'
 
 const msToHours = ms => ms / 1000 / 60 / 60
 
@@ -45,6 +47,13 @@ export class Home extends Component {
     })
   }
 
+  componentDidMount() {
+    this.props.firebase.writeUserData(
+      'Joãozinho',
+      'joao@arnaldo.com'
+    )
+  }
+
   render() {
     const { appointments, pointedHours } = this.state;
 
@@ -71,4 +80,7 @@ export class Home extends Component {
 
 const condition = authUser => !!authUser;
 
-export default withAuthorization(condition)(Home);
+export default compose(
+  withAuthorization(condition),
+  withFirebase,
+)(Home);
