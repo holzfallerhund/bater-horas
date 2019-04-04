@@ -50,8 +50,8 @@ export class Home extends Component {
 
     return (
       <>
-        <section class="section">
-          <div class="container">
+        <section className="section">
+          <div className="container">
             <button
               className='button'
               onClick={() => this.handPoint()}>
