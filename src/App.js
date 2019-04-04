@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
-import { withFirebase } from './Firebase';
-import { AuthUserContext } from './Session';
+import React, { Component } from 'react'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { withFirebase } from './Firebase'
+import { AuthUserContext } from './Session'
 import Navigation from './Navigation'
 import 'bulma/css/bulma.min.css'
-import * as ROUTES from './constants/routes';
+import * as ROUTES from './constants/routes'
 
 import Home from './Home'
 import SignUpPage from './SignUp'
@@ -25,13 +25,13 @@ class App extends Component {
       authUser => {
         authUser
           ? this.setState({ authUser })
-          : this.setState({ authUser: null });
+          : this.setState({ authUser: null })
       },
-    );
+    )
   }
 
   componentWillUnmount() {
-    this.listener();
+    this.listener()
   }
 
   render() {
@@ -50,8 +50,8 @@ class App extends Component {
           <Route path={ROUTES.ADMIN} component={AdminPage} />
         </Router>
       </AuthUserContext.Provider>
-    );
+    )
   }
 }
 
-export default withFirebase(App);
+export default withFirebase(App)

@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 
-import { withFirebase } from '../Firebase';
+import { withFirebase } from '../Firebase'
 
 const UserList = ({ users }) => (
     <ul>
@@ -18,41 +18,41 @@ const UserList = ({ users }) => (
             </li>
         ))}
     </ul>
-);
+)
 
 class AdminPage extends Component {
     constructor(props) {
-        super(props);
+        super(props)
 
         this.state = {
             loading: false,
             users: [],
-        };
+        }
     }
     componentWillUnmount() {
-        this.props.firebase.users().off();
+        this.props.firebase.users().off()
     }
 
     componentDidMount() {
-        this.setState({ loading: true });
+        this.setState({ loading: true })
 
         this.props.firebase.users().on('value', snapshot => {
-            const usersObject = snapshot.val();
+            const usersObject = snapshot.val()
 
             const usersList = Object.keys(usersObject).map(key => ({
                 ...usersObject[key],
                 uid: key,
-            }));
+            }))
 
             this.setState({
                 users: usersList,
                 loading: false,
-            });
-        });
+            })
+        })
     }
 
     render() {
-        const { users, loading } = this.state;
+        const { users, loading } = this.state
 
         return (
             <>
@@ -66,4 +66,4 @@ class AdminPage extends Component {
     }
 }
 
-export default withFirebase(AdminPage);
+export default withFirebase(AdminPage)

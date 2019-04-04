@@ -1,6 +1,6 @@
-import app from 'firebase/app';
-import 'firebase/auth';
-import 'firebase/database';
+import app from 'firebase/app'
+import 'firebase/auth'
+import 'firebase/database'
 
 const prodConfig = {
     apiKey: process.env.REACT_APP_PROD_API_KEY,
@@ -9,7 +9,7 @@ const prodConfig = {
     projectId: process.env.REACT_APP_PROD_PROJECT_ID,
     storageBucket: process.env.REACT_APP_PROD_STORAGE_BUCKET,
     messagingSenderId: process.env.REACT_APP_PROD_MESSAGING_SENDER_ID,
-};
+}
 
 const devConfig = {
     apiKey: process.env.REACT_APP_DEV_API_KEY,
@@ -18,35 +18,35 @@ const devConfig = {
     projectId: process.env.REACT_APP_DEV_PROJECT_ID,
     storageBucket: process.env.REACT_APP_DEV_STORAGE_BUCKET,
     messagingSenderId: process.env.REACT_APP_DEV_MESSAGING_SENDER_ID,
-};
+}
 
 const config =
-    process.env.NODE_ENV === 'production' ? prodConfig : devConfig;
+    process.env.NODE_ENV === 'production' ? prodConfig : devConfig
 
 class Firebase {
     constructor() {
-        app.initializeApp(config);
+        app.initializeApp(config)
 
-        this.auth = app.auth();
-        this.db = app.database();
+        this.auth = app.auth()
+        this.db = app.database()
     }
 
     doCreateUserWithEmailAndPassword = (email, password) =>
-        this.auth.createUserWithEmailAndPassword(email, password);
+        this.auth.createUserWithEmailAndPassword(email, password)
 
     doSignInWithEmailAndPassword = (email, password) =>
-        this.auth.signInWithEmailAndPassword(email, password);
+        this.auth.signInWithEmailAndPassword(email, password)
 
-    doSignOut = () => this.auth.signOut();
+    doSignOut = () => this.auth.signOut()
 
-    doPasswordReset = email => this.auth.sendPasswordResetEmail(email);
+    doPasswordReset = email => this.auth.sendPasswordResetEmail(email)
 
     doPasswordUpdate = password =>
-        this.auth.currentUser.updatePassword(password);
+        this.auth.currentUser.updatePassword(password)
 
-    user = () => this.db.ref(`users/${this.userUid()}`);
+    user = () => this.db.ref(`users/${this.userUid()}`)
 
-    users = () => this.db.ref('users');
+    users = () => this.db.ref('users')
 
     userUid = () => this.auth.currentUser.uid
 
@@ -60,4 +60,4 @@ class Firebase {
     }
 }
 
-export default Firebase;
+export default Firebase

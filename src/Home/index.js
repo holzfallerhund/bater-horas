@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { withAuthorization } from '../Session';
+import { withAuthorization } from '../Session'
 import Table from '../Table'
 import NavbarBotton from '../NavbarBotton'
 import {
@@ -12,7 +12,7 @@ import {
   subtract,
   sum
 } from 'ramda'
-import { compose } from 'recompose';
+import { compose } from 'recompose'
 import { withFirebase } from '../Firebase'
 
 const msToHours = ms => ms / 1000 / 60 / 60
@@ -52,14 +52,14 @@ export class Home extends Component {
 
   componentDidMount() {
     this.props.firebase.user().on("value", function (snapshot) {
-      console.log(snapshot.val());
+      console.log(snapshot.val())
     }, function (errorObject) {
-      console.log("The read failed: " + errorObject.code);
-    });
+      console.log("The read failed: " + errorObject.code)
+    })
   }
 
   render() {
-    const { appointments, pointedHours } = this.state;
+    const { appointments, pointedHours } = this.state
 
     return (
       <>
@@ -82,9 +82,9 @@ export class Home extends Component {
   }
 }
 
-const condition = authUser => !!authUser;
+const condition = authUser => !!authUser
 
 export default compose(
   withAuthorization(condition),
   withFirebase,
-)(Home);
+)(Home)

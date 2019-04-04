@@ -1,10 +1,10 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from 'react'
+import { Link } from 'react-router-dom'
 
 import Navbar from '../Navbar'
-import * as ROUTES from '../constants/routes';
+import * as ROUTES from '../constants/routes'
 
-import { AuthUserContext } from '../Session';
+import { AuthUserContext } from '../Session'
 
 const Navigation = () => (
   <div>
@@ -14,11 +14,11 @@ const Navigation = () => (
       }
     </AuthUserContext.Consumer>
   </div>
-);
+)
 
 const NavigationAuth = () => (
   <Navbar />
-);
+)
 
 const NavigationNonAuth = () => (
   <ul>
@@ -26,6 +26,6 @@ const NavigationNonAuth = () => (
       <Link to={ROUTES.SIGN_IN}>Sign In</Link>
     </li>
   </ul>
-);
+)
 
-export default Navigation;
+export default Navigation

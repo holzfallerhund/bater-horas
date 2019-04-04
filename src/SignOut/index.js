@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React from 'react';
+import React from 'react'
 
-import { withFirebase } from '../Firebase';
+import { withFirebase } from '../Firebase'
 
 const SignOutButton = ({ firebase }) => (
   <a
@@ -9,6 +9,6 @@ const SignOutButton = ({ firebase }) => (
     onClick={firebase.doSignOut}>
     <strong>Sair</strong>
   </a>
-);
+)
 
-export default withFirebase(SignOutButton);
+export default withFirebase(SignOutButton)

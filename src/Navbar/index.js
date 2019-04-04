@@ -1,9 +1,9 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { PureComponent } from 'react'
-import { withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom'
 import SignOutButton from '../SignOut'
 import UserName from '../UserName'
-import * as ROUTES from '../constants/routes';
+import * as ROUTES from '../constants/routes'
 
 class NavBarContent extends PureComponent {
     state = {
@@ -65,6 +65,6 @@ class NavBarContent extends PureComponent {
     }
 }
 
-const Navbar = withRouter(NavBarContent);
+const Navbar = withRouter(NavBarContent)
 
 export default Navbar
