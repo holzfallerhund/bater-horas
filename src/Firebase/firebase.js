@@ -44,18 +44,17 @@ class Firebase {
     doPasswordUpdate = password =>
         this.auth.currentUser.updatePassword(password);
 
-    user = uid => this.db.ref(`users/${uid}`);
+    user = () => this.db.ref(`users/${this.userUid()}`);
 
     users = () => this.db.ref('users');
 
     userUid = () => this.auth.currentUser.uid
 
-    writeUserData = (name, email) =>
-        this.db.ref('users/' + this.userUid()).set({
-            username: name,
-            email: email
+    writeAppointment = (appointment) => {
+        this.db.ref(this.userUid() + '/appointments').push({
+            dateTime: appointment.toString()
         })
-
+    }
 }
 
 export default Firebase;

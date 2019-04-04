@@ -44,14 +44,18 @@ export class Home extends Component {
     this.setState({
       appointments: this.state.appointments.concat([appointment]),
       ...pointedHours
+    }, () => {
+      this.props.firebase.writeAppointment(appointment.date)
     })
+
   }
 
   componentDidMount() {
-    this.props.firebase.writeUserData(
-      'Joãozinho',
-      'joao@arnaldo.com'
-    )
+    this.props.firebase.user().on("value", function (snapshot) {
+      console.log(snapshot.val());
+    }, function (errorObject) {
+      console.log("The read failed: " + errorObject.code);
+    });
   }
 
   render() {
