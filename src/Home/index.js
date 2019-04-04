@@ -4,6 +4,7 @@ import Table from '../Table'
 import NavbarBotton from '../NavbarBotton'
 import {
   apply,
+  dropLast,
   flip,
   map,
   pipe,
@@ -31,23 +32,20 @@ export class Home extends Component {
   }
 
 
-  handPoint() {
-    const pointedHours =
+  handlePointedHours() {
+    return (
       this.state.appointments.length % 2 === 0
-        ? { pointedHours: date(this.state.appointments) }
-        : {}
+        ? date(this.state.appointments)
+        : date(dropLast(1, this.state.appointments))
+    )
+  }
 
+  handPoint() {
     const appointment = {
       date: new Date()
     }
 
-    this.setState({
-      appointments: this.state.appointments.concat([appointment]),
-      ...pointedHours
-    }, () => {
-      this.props.firebase.writeAppointment(appointment.date)
-    })
-
+    this.props.firebase.writeAppointment(appointment.date)
   }
 
   componentDidMount() {
@@ -55,7 +53,7 @@ export class Home extends Component {
       snapshot.forEach(appointment =>
         this.setState({
           appointments: this.state.appointments.concat(
-            [{ date: appointment.val().dateTime }]
+            [{ date: new Date(appointment.val().dateTime) }]
           )
         })
       )
@@ -63,7 +61,7 @@ export class Home extends Component {
   }
 
   render() {
-    const { appointments, pointedHours } = this.state
+    const { appointments } = this.state
 
     return (
       <>
@@ -76,7 +74,7 @@ export class Home extends Component {
               </button>
             <Table
               appointments={appointments}
-              pointedHours={pointedHours}
+              pointedHours={this.handlePointedHours()}
             />
           </div>
         </section>
