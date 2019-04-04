@@ -50,10 +50,13 @@ class Firebase {
 
     userUid = () => this.auth.currentUser.uid
 
-    writeAppointment = (appointment) => {
+    writeAppointment = (appointment) =>
         this.db.ref(this.userUid() + '/appointments').push({
             dateTime: appointment.toString()
         })
+
+    getAppointments = () => {
+        this.db.ref(this.userUid() + '/appointments')
     }
 }
 
