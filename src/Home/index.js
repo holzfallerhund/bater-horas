@@ -51,11 +51,15 @@ export class Home extends Component {
   }
 
   componentDidMount() {
-    this.props.firebase.user().on("value", function (snapshot) {
-      console.log(snapshot.val())
-    }, function (errorObject) {
-      console.log("The read failed: " + errorObject.code)
-    })
+    this.props.firebase.getAppointments().on('value', snapshot =>
+      snapshot.forEach(appointment =>
+        this.setState({
+          appointments: this.state.appointments.concat(
+            [{ date: appointment.val().dateTime }]
+          )
+        })
+      )
+    )
   }
 
   render() {

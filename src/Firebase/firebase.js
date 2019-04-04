@@ -55,9 +55,7 @@ class Firebase {
             dateTime: appointment.toString()
         })
 
-    getAppointments = () => {
-        this.db.ref(this.userUid() + '/appointments')
-    }
+    getAppointments = () => this.db.ref(this.userUid() + '/appointments')
 }
 
 export default Firebase
