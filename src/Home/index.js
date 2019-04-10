@@ -47,7 +47,7 @@ export class Home extends Component {
 
   handPoint() {
     const appointment = {
-      date: format(new Date(), 'YYYY-MM-DD HH:mm')
+      date: format(new Date(), 'YYYY-MM-DD HH:mm:ss')
     }
 
     this.props.firebase.writeAppointment(
@@ -75,6 +75,20 @@ export class Home extends Component {
     })
   }
 
+  handleTextUpdate = (event) => {
+    console.log(
+      this.state
+    )
+
+    this.props.firebase.writeDescription(
+      this.state.dateTime.year + '-' + this.state.dateTime.month,
+      event.target.id
+    ).update({
+      description: event.target.value
+    })
+
+  }
+
   componentDidMount() {
     this.getDate()
   }
@@ -94,15 +108,15 @@ export class Home extends Component {
             <Table
               appointments={appointments}
               pointedHours={this.handlePointedHours()}
+              handleTextUpdate={this.handleTextUpdate}
             />
           </div>
         </section>
         <NavbarBotton changeDate={(dateTime) => {
-          console.log(dateTime)
-          this.setState({dateTime}, () => {
+          this.setState({ dateTime }, () => {
             this.getDate()
           })
-        }}/>
+        }} />
       </>
     )
   }

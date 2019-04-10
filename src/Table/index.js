@@ -2,7 +2,7 @@ import React from 'react'
 import TableBody from './TableCell'
 import TableFooter from './TableFooter'
 
-const Table = ({ appointments, pointedHours }) => (
+const Table = ({ appointments, pointedHours, handleTextUpdate }) => (
     <table className='table'>
         <thead>
             <tr>
@@ -12,6 +12,7 @@ const Table = ({ appointments, pointedHours }) => (
         </thead>
         <TableBody
             appointments={appointments}
+            handleTextUpdate={handleTextUpdate}
         />
         <TableFooter
             dates={appointments}

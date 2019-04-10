@@ -57,6 +57,13 @@ class Firebase {
             .collection(collectionData)
             .add(documentData)
 
+    writeDescription = (collectionData, documentId) =>
+        this.db.collection(this.userUid())
+            .doc('appointments')
+            .collection(collectionData)
+            .doc(documentId)
+
+
     getAppointments = (collection) => this.db.collection(this.userUid())
         .doc('appointments')
         .collection(collection)

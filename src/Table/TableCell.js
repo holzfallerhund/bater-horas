@@ -1,22 +1,23 @@
 import React from 'react'
 import { format } from 'date-fns'
 
-const TableBody = ({ appointments }) => {
+const TableBody = ({ appointments, handleTextUpdate }) => {
     return (
         <tbody>
             {(appointments.length % 2 === 0
                 ? appointments
                 : appointments).map((appointment, index) =>
                     <tr key={index} id={appointment.id}>
-                        { console.log(appointment) }
                         <th>{format(appointment.date, 'YYYY-MM-DD HH:mm:ss')}</th>
                         <th>
-                        <input
-                            className="input"
-                            type="text"
-                            placeholder="Justifique"
-                            value={ appointment.description }
-                        />
+                            <input
+                                className="input"
+                                type="text"
+                                id={appointment.id}
+                                placeholder="Justifique"
+                                onChange={handleTextUpdate}
+                                value={appointment.description}
+                            />
                         </th>
                     </tr>
                 )}
