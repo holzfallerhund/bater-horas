@@ -2,13 +2,14 @@
 import React, { PureComponent } from 'react'
 import { evolve, assoc } from 'ramda'
 import NavbarDropdownUp from './NavbarDropdownUp'
+import { format } from 'date-fns'
 
 export default class NavbarBotton extends PureComponent {
     state = {
         isActive: false,
         values: {
-            year: '',
-            month: ''
+            year: format(new Date(), 'YYYY'),
+            month: format(new Date(), 'MM')
         }
     }
 
@@ -41,7 +42,11 @@ export default class NavbarBotton extends PureComponent {
                             contents={['2019', '2018']}
                             selected={this.state.values.year}
                             onSelectChose={(name, value) => {
-                                this.setState(evolve({ values: assoc(name, value) }))
+                                this.setState(evolve({
+                                    values: assoc(name, value)
+                                }), () => {
+                                    this.props.changeDate(this.state.values)
+                                })
                             }}
                         />
                         <NavbarDropdownUp

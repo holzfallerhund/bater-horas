@@ -29,7 +29,11 @@ const date = pipe(
 export class Home extends Component {
   state = {
     appointments: [],
-    pointedHours: 0
+    pointedHours: 0,
+    dateTime: {
+      year: format(new Date(), 'YYYY'),
+      month: format(new Date(), 'MM')
+    }
   }
 
 
@@ -47,13 +51,15 @@ export class Home extends Component {
     }
 
     this.props.firebase.writeAppointment(
-      format(appointment.date, 'YYYY-MM'),
+      this.state.dateTime.year + '-' + this.state.dateTime.month,
       appointment
     )
   }
 
-  componentDidMount() {
-    this.props.firebase.getAppointments('2019-04').onSnapshot((snapshot) => {
+  getDate() {
+    this.props.firebase.getAppointments(
+      this.state.dateTime.year + '-' + this.state.dateTime.month
+    ).onSnapshot((snapshot) => {
       const retorno = []
       snapshot.docs
         .forEach(appointment => {
@@ -62,9 +68,13 @@ export class Home extends Component {
           })
         })
       this.setState({
-        appointments: retorno.reverse()
-      }, () => console.log(this.state.appointments))
+        appointments: retorno.reverse() || []
+      })
     })
+  }
+
+  componentDidMount() {
+    this.getDate()
   }
 
   render() {
@@ -72,6 +82,10 @@ export class Home extends Component {
 
     return (
       <>
+        <button onClick={() => this.setState({
+          appointments: []
+        })}>
+        hel</button>
         <section className="section">
           <div className="container">
             <button
@@ -85,7 +99,12 @@ export class Home extends Component {
             />
           </div>
         </section>
-        <NavbarBotton />
+        <NavbarBotton changeDate={(dateTime) => {
+          console.log(dateTime)
+          this.setState({dateTime}, () => {
+            this.getDate()
+          })
+        }}/>
       </>
     )
   }
