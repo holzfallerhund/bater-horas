@@ -13,6 +13,7 @@ import {
   subtract,
   sum
 } from 'ramda'
+import { format } from 'date-fns'
 import { compose } from 'recompose'
 import { withFirebase } from '../Firebase'
 
@@ -42,22 +43,28 @@ export class Home extends Component {
 
   handPoint() {
     const appointment = {
-      date: new Date()
+      date: format(new Date(), 'YYYY-MM-DD HH:mm')
     }
 
-    this.props.firebase.writeAppointment(appointment.date)
+    this.props.firebase.writeAppointment(
+      format(appointment.date, 'YYYY-MM'),
+      appointment
+    )
   }
 
   componentDidMount() {
-    this.props.firebase.getAppointments().on('value', snapshot =>
-      snapshot.forEach(appointment =>
-        this.setState({
-          appointments: this.state.appointments.concat(
-            [{ date: new Date(appointment.val().dateTime) }]
-          )
+    this.props.firebase.getAppointments('2019-04').onSnapshot((snapshot) => {
+      const retorno = []
+      snapshot.docs
+        .forEach(appointment => {
+          retorno.push({
+            date: new Date(appointment.data().date)
+          })
         })
-      )
-    )
+      this.setState({
+        appointments: retorno.reverse()
+      }, () => console.log(this.state.appointments))
+    })
   }
 
   render() {

@@ -1,6 +1,6 @@
 import app from 'firebase/app'
 import 'firebase/auth'
-import 'firebase/database'
+import 'firebase/firestore'
 
 const prodConfig = {
     apiKey: process.env.REACT_APP_PROD_API_KEY,
@@ -28,7 +28,8 @@ class Firebase {
         app.initializeApp(config)
 
         this.auth = app.auth()
-        this.db = app.database()
+        this.db = app.firestore()
+        app.firestore().enablePersistence()
     }
 
     doCreateUserWithEmailAndPassword = (email, password) =>
@@ -44,18 +45,21 @@ class Firebase {
     doPasswordUpdate = password =>
         this.auth.currentUser.updatePassword(password)
 
-    user = () => this.db.ref(`users/${this.userUid()}`)
+    user = uid => this.db.doc(`users/${uid}`)
 
-    users = () => this.db.ref('users')
+    users = () => this.db.collection('users')
 
     userUid = () => this.auth.currentUser.uid
 
-    writeAppointment = (appointment) =>
-        this.db.ref(this.userUid() + '/appointments').push({
-            dateTime: appointment.toString()
-        })
+    writeAppointment = (collectionData, documentData) =>
+        this.db.collection(this.userUid())
+            .doc('appointments')
+            .collection(collectionData)
+            .add(documentData)
 
-    getAppointments = () => this.db.ref(this.userUid() + '/appointments')
+    getAppointments = (collection) => this.db.collection(this.userUid())
+        .doc('appointments')
+        .collection(collection)
 }
 
 export default Firebase
