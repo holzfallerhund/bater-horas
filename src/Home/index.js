@@ -64,7 +64,9 @@ export class Home extends Component {
       snapshot.docs
         .forEach(appointment => {
           retorno.push({
-            date: new Date(appointment.data().date)
+            id: appointment.id,
+            date: new Date(appointment.data().date),
+            description: appointment.data().description
           })
         })
       this.setState({
@@ -82,10 +84,6 @@ export class Home extends Component {
 
     return (
       <>
-        <button onClick={() => this.setState({
-          appointments: []
-        })}>
-        hel</button>
         <section className="section">
           <div className="container">
             <button

@@ -7,6 +7,7 @@ const Table = ({ appointments, pointedHours }) => (
         <thead>
             <tr>
                 <th>Horário</th>
+                <th>Descrição</th>
             </tr>
         </thead>
         <TableBody
