@@ -60,17 +60,17 @@ export class Home extends Component {
     this.props.firebase.getAppointments(
       this.state.dateTime.year + '-' + this.state.dateTime.month
     ).onSnapshot((snapshot) => {
-      const retorno = []
+      const appointments = []
       snapshot.docs
         .forEach(appointment => {
-          retorno.push({
+          appointments.push({
             id: appointment.id,
             date: new Date(appointment.data().date),
             description: appointment.data().description
           })
         })
       this.setState({
-        appointments: retorno.reverse() || []
+        appointments: appointments || []
       })
     })
   }

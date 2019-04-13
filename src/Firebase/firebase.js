@@ -67,6 +67,7 @@ class Firebase {
     getAppointments = (collection) => this.db.collection(this.userUid())
         .doc('appointments')
         .collection(collection)
+        .orderBy('date')
 }
 
 export default Firebase
