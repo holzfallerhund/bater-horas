@@ -3,7 +3,7 @@ import TableBody from './TableCell'
 import TableFooter from './TableFooter'
 
 const Table = ({ appointments, pointedHours, handleTextUpdate }) => (
-    <table className='table'>
+    <table className='table' style={{ width: '100%'}}>
         <thead>
             <tr>
                 <th>Horário</th>
