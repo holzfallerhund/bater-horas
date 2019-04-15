@@ -45,7 +45,7 @@ export class Home extends Component {
     )
   }
 
-  handPoint() {
+  handPoint = () => {
     const appointment = {
       date: format(new Date(), 'YYYY-MM-DD HH:mm:ss')
     }
@@ -100,11 +100,6 @@ export class Home extends Component {
       <>
         <section className="section">
           <div className="container">
-            <button
-              className='button'
-              onClick={() => this.handPoint()}>
-              Fazer apontamento
-              </button>
             <Table
               appointments={appointments}
               pointedHours={this.handlePointedHours()}
@@ -112,11 +107,14 @@ export class Home extends Component {
             />
           </div>
         </section>
-        <NavbarBotton changeDate={(dateTime) => {
-          this.setState({ dateTime }, () => {
-            this.getDate()
-          })
-        }} />
+        <NavbarBotton
+          changeDate={(dateTime) => {
+            this.setState({ dateTime }, () => {
+              this.getDate()
+            })
+          }}
+          handPoint={this.handPoint}
+        />
       </>
     )
   }

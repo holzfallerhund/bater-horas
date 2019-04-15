@@ -59,7 +59,9 @@ export default class NavbarBotton extends PureComponent {
                         />
                     </div>
                     <div className='navbar-end'>
-                        <a className='navbar-item'>
+                        <a
+                            className='navbar-item'
+                            onClick={this.props.handPoint}>
                             Novo ponto
                         </a>
                     </div>

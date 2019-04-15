@@ -52,9 +52,6 @@ class NavBarContent extends PureComponent {
                     <div className='navbar-end'>
                         <div className='navbar-item'>
                             <div className='buttons'>
-                                <a className='button is-primary'>
-                                    <strong>Exportar</strong>
-                                </a>
                                 <SignOutButton />
                             </div>
                         </div>
