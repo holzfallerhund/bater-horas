@@ -51,10 +51,14 @@ export default class NavbarBotton extends PureComponent {
                         />
                         <NavbarDropdownUp
                             name='month'
-                            contents={['Março', 'Abril']}
+                            contents={['04', '03']}
                             selected={this.state.values.month}
                             onSelectChose={(name, value) => {
-                                this.setState(evolve({ values: assoc(name, value) }))
+                                this.setState(evolve({
+                                    values: assoc(name, value)
+                                }), () => {
+                                    this.props.changeDate(this.state.values)
+                                })
                             }}
                         />
                     </div>
