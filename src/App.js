@@ -11,7 +11,6 @@ import SignUpPage from './SignUp'
 import SignInPage from './Sign'
 import PasswordForgetPage from './PasswordForget'
 import AccountPage from './Account'
-import AdminPage from './Admin'
 
 
 class App extends Component {
@@ -39,7 +38,7 @@ class App extends Component {
       <AuthUserContext.Provider value={this.state.authUser}>
         <Router>
           <Navigation authUser={ this.state.authUser }/>
-          <Route path={ROUTES.HOME} component={Home} />
+          <Route path={ROUTES.HOME} exact component={Home} />
           <Route path={ROUTES.SIGN_UP} component={SignUpPage} />
           <Route path={ROUTES.SIGN_IN} component={SignInPage} />
           <Route
@@ -47,7 +46,6 @@ class App extends Component {
             component={PasswordForgetPage}
           />
           <Route path={ROUTES.ACCOUNT} component={AccountPage} />
-          <Route path={ROUTES.ADMIN} component={AdminPage} />
         </Router>
       </AuthUserContext.Provider>
     )
