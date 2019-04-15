@@ -42,24 +42,39 @@ class PasswordChangeForm extends Component {
 
         return (
             <form onSubmit={this.onSubmit}>
-                <input
-                    name="passwordOne"
-                    value={passwordOne}
-                    onChange={this.onChange}
-                    type="password"
-                    placeholder="New Password"
-                />
-                <input
-                    name="passwordTwo"
-                    value={passwordTwo}
-                    onChange={this.onChange}
-                    type="password"
-                    placeholder="Confirm New Password"
-                />
-                <button disabled={isInvalid} type="submit">
-                    Reset My Password
-                </button>
-                {error && <p>{error.message}</p>}
+                <div className="field">
+                    <label className="label">Nova senha</label>
+                    <input
+                        className="input"
+                        name="passwordOne"
+                        value={passwordOne}
+                        onChange={this.onChange}
+                        type="password"
+                        placeholder="Digite a nova senha..."
+                    />
+                </div>
+                <div className="field">
+                    <label className="label">Confirme a nova senha</label>
+                    <input
+                        className="input"
+                        name="passwordTwo"
+                        value={passwordTwo}
+                        onChange={this.onChange}
+                        type="password"
+                        placeholder="Confirm New Password"
+                    />
+                </div>
+                <div className="control">
+                    <button
+                        disabled={isInvalid}
+                        type="submit"
+                        className="button is-link">
+                        Resetar senha
+                    </button>
+                </div>
+                {error &&
+                    <p className="help is-danger">{error.message}</p>
+                }
             </form>
         )
     }
