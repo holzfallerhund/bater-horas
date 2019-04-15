@@ -4,6 +4,7 @@ import { withRouter } from 'react-router-dom'
 import SignOutButton from '../SignOut'
 import UserName from '../UserName'
 import * as ROUTES from '../constants/routes'
+import logo from '../assets/relogio-escrito.svg'
 
 class NavBarContent extends PureComponent {
     state = {
@@ -21,7 +22,12 @@ class NavBarContent extends PureComponent {
                         onClick={() => {
                             this.props.history.push(ROUTES.HOME)
                         }}>
-                        <img src='https://bulma.io/images/bulma-logo.png' width='112' height='28' alt='Bulma logo' />
+                        <img
+                            src={ logo }
+                            width='112'
+                            height='28'
+                            alt='Bater horas logo'
+                        />
                     </a>
                     <a
                         role='button'
