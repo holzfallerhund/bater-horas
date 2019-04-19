@@ -51,20 +51,19 @@ class PasswordForgetFormBase extends Component {
             <form onSubmit={this.onSubmit}>
                 <div className="field">
                     <label className="label">E-mail</label>
-                    <input
-                        className={'input' + error && ' is-danger'}
-                        type="email"
-                        name="email"
-                        placeholder="Seu e-mail"
-                        value={this.state.email}
-                        onChange={this.onChange}
-                    />
-                    <span className="icon is-small is-left">
-                        <i className="fas fa-envelope"></i>
-                    </span>
-                    <span className="icon is-small is-right">
-                        <i className="fas fa-exclamation-triangle"></i>
-                    </span>
+                    <p className="control has-icons-left has-icons-right">
+                        <input
+                            className={`input ${error && 'is-danger'}`}
+                            type="email"
+                            name="email"
+                            placeholder="Seu e-mail"
+                            value={this.state.email}
+                            onChange={this.onChange}
+                        />
+                        <span className="icon is-small is-left">
+                            <i className="fas fa-envelope"></i>
+                        </span>
+                    </p>
                 </div>
                 {error &&
                     <p className="help is-danger">{error.message}</p>

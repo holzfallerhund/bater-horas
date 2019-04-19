@@ -4,6 +4,7 @@ import { withFirebase } from './Firebase'
 import { AuthUserContext } from './Session'
 import Navigation from './Navigation'
 import 'bulma/css/bulma.min.css'
+import '@fortawesome/fontawesome-free/css/all.min.css'
 import * as ROUTES from './constants/routes'
 
 import Home from './Home'
