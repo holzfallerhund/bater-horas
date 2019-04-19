@@ -17,7 +17,14 @@ export default class NavbarBotton extends PureComponent {
         const isActive = this.state.isActive && ' is-active'
 
         return (
-            <nav className='navbar is-light is-fixed-bottom' role='navigation' aria-label='main navigation'>
+            <nav
+                className='navbar is-light is-fixed-bottom'
+                role='navigation'
+                aria-label='main navigation'
+                style={{
+                    height: isActive ? '100vh' : 'auto',
+                    overflowY: 'auto'
+                }}>
                 <div className='navbar-brand'>
                     <a
                         role='button'
@@ -39,7 +46,7 @@ export default class NavbarBotton extends PureComponent {
                     <div className='navbar-start'>
                         <NavbarDropdownUp
                             name='year'
-                            contents={['2019', '2018']}
+                            contents={['2021', '2020', '2019']}
                             selected={this.state.values.year}
                             onSelectChose={(name, value) => {
                                 this.setState(evolve({
@@ -51,7 +58,10 @@ export default class NavbarBotton extends PureComponent {
                         />
                         <NavbarDropdownUp
                             name='month'
-                            contents={['04', '03']}
+                            contents={[
+                                '01', '02', '03', '04', '05', '06',
+                                '07', '08', '09', '10', '11', '12',
+                            ]}
                             selected={this.state.values.month}
                             onSelectChose={(name, value) => {
                                 this.setState(evolve({
