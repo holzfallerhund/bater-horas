@@ -14,7 +14,7 @@ export default class NavbarBotton extends PureComponent {
     }
 
     render() {
-        const isActive = this.state.isActive && ' is-active'
+        const isActive = this.state.isActive && 'is-active'
 
         return (
             <nav
@@ -22,8 +22,8 @@ export default class NavbarBotton extends PureComponent {
                 role='navigation'
                 aria-label='main navigation'
                 style={{
-                    height: isActive ? '100vh' : 'auto',
-                    overflowY: 'auto'
+                    height: isActive && '100vh',
+                    overflowY: isActive && 'auto'
                 }}>
                 <div className='navbar-brand'>
                     <a
