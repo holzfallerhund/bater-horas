@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import { withAuthorization } from '../Session'
-import Table from '../Table'
-import NavbarBotton from '../NavbarBotton'
+import { withAuthorization } from '../../Session'
+import Table from '../table'
+import NavbarBotton from '../dashboard/navbarBotton'
 import {
   apply,
   dropLast,
@@ -15,7 +15,7 @@ import {
 } from 'ramda'
 import { format } from 'date-fns'
 import { compose } from 'recompose'
-import { withFirebase } from '../Firebase'
+import { withFirebase } from '../../Firebase'
 
 const msToHours = ms => ms / 1000 / 60 / 60
 
@@ -26,6 +26,7 @@ const date = pipe(
   sum,
   msToHours
 )
+
 export class Home extends Component {
   state = {
     appointments: [],
@@ -76,10 +77,6 @@ export class Home extends Component {
   }
 
   handleTextUpdate = (event) => {
-    console.log(
-      this.state
-    )
-
     this.props.firebase.writeDescription(
       this.state.dateTime.year + '-' + this.state.dateTime.month,
       event.target.id
@@ -124,5 +121,5 @@ const condition = authUser => !!authUser
 
 export default compose(
   withAuthorization(condition),
-  withFirebase,
+  withFirebase
 )(Home)

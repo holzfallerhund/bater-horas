@@ -2,16 +2,16 @@ import React, { Component } from 'react'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import { withFirebase } from './Firebase'
 import { AuthUserContext } from './Session'
-import Navigation from './Navigation'
 import 'bulma/css/bulma.min.css'
 import '@fortawesome/fontawesome-free/css/all.min.css'
 import * as ROUTES from './constants/routes'
 
-import Home from './Home'
-import SignUpPage from './SignUp'
-import SignInPage from './Sign'
-import PasswordForgetPage from './PasswordForget'
-import AccountPage from './Account'
+import Navigation from './components/dashboard/navigation'
+import Home from './components/home'
+import SignUpPage from './components/authentication/signup'
+import SignInPage from './components/authentication/signin'
+import PasswordForgetPage from './components/authentication/passwordForget'
+import AccountPage from './components/account'
 
 
 class App extends Component {

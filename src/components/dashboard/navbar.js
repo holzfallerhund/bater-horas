@@ -1,10 +1,10 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { PureComponent } from 'react'
 import { withRouter } from 'react-router-dom'
-import SignOutButton from '../SignOut'
-import UserName from '../UserName'
-import * as ROUTES from '../constants/routes'
-import logo from '../assets/relogio-escrito.svg'
+import SignOutButton from '../authentication/siginout'
+import UserName from '../../UserName'
+import * as ROUTES from '../../constants/routes'
+import logo from '../../assets/relogio-escrito.svg'
 
 class NavBarContent extends PureComponent {
     state = {
