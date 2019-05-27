@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { withAuthorization } from '../../Session'
+import { withAuthorization } from '../session'
 import Table from '../table'
 import NavbarBotton from '../dashboard/navbarBotton'
 import {
@@ -15,7 +15,7 @@ import {
 } from 'ramda'
 import { format } from 'date-fns'
 import { compose } from 'recompose'
-import { withFirebase } from '../../Firebase'
+import { withFirebase } from '../firebase'
 
 const msToHours = ms => ms / 1000 / 60 / 60
 

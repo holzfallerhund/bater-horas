@@ -2,7 +2,7 @@
 import React, { PureComponent } from 'react'
 import { withRouter } from 'react-router-dom'
 import SignOutButton from '../authentication/siginout'
-import UserName from '../../UserName'
+import UserName from '../UserName'
 import * as ROUTES from '../../constants/routes'
 import logo from '../../assets/relogio-escrito.svg'
 

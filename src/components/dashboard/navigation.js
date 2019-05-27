@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import Navbar from './navbar'
 import * as ROUTES from '../../constants/routes'
 
-import { AuthUserContext } from '../../Session'
+import { AuthUserContext } from '../session'
 
 const Navigation = () => (
   <div>
