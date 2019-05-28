@@ -6,12 +6,12 @@
         "javascript",
         "javascriptreact",
         {
-          "language": "jasvsript",
-          "autoFix": true
+            "language": "jasvsript",
+            "autoFix": true
         },
         {
-          "language": "javscriptreact",
-          "autoFix": true
+            "language": "javscriptreact",
+            "autoFix": true
         }
     ]
-  }
+}

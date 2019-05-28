@@ -5,7 +5,7 @@ import { withFirebase } from '../firebase'
 const INITIAL_STATE = {
     passwordOne: '',
     passwordTwo: '',
-    error: null,
+    error: null
 }
 
 class PasswordChangeForm extends Component {
@@ -37,44 +37,41 @@ class PasswordChangeForm extends Component {
     render() {
         const { passwordOne, passwordTwo, error } = this.state
 
-        const isInvalid =
-            passwordOne !== passwordTwo || passwordOne === ''
+        const isInvalid = passwordOne !== passwordTwo || passwordOne === ''
 
         return (
             <form onSubmit={this.onSubmit}>
-                <div className="field">
-                    <label className="label">Nova senha</label>
+                <div className='field'>
+                    <label className='label'>Nova senha</label>
                     <input
-                        className="input"
-                        name="passwordOne"
+                        className='input'
+                        name='passwordOne'
                         value={passwordOne}
                         onChange={this.onChange}
-                        type="password"
-                        placeholder="Digite a nova senha..."
+                        type='password'
+                        placeholder='Digite a nova senha...'
                     />
                 </div>
-                <div className="field">
-                    <label className="label">Confirme a nova senha</label>
+                <div className='field'>
+                    <label className='label'>Confirme a nova senha</label>
                     <input
-                        className="input"
-                        name="passwordTwo"
+                        className='input'
+                        name='passwordTwo'
                         value={passwordTwo}
                         onChange={this.onChange}
-                        type="password"
-                        placeholder="Confirm New Password"
+                        type='password'
+                        placeholder='Confirm New Password'
                     />
                 </div>
-                <div className="control">
+                <div className='control'>
                     <button
                         disabled={isInvalid}
-                        type="submit"
-                        className="button is-link">
+                        type='submit'
+                        className='button is-link'>
                         Resetar senha
                     </button>
                 </div>
-                {error &&
-                    <p className="help is-danger">{error.message}</p>
-                }
+                {error && <p className='help is-danger'>{error.message}</p>}
             </form>
         )
     }

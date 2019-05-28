@@ -10,9 +10,8 @@ const INITIAL_STATE = {
     email: '',
     passwordOne: '',
     passwordTwo: '',
-    error: null,
+    error: null
 }
-
 
 const SignUpPage = () => (
     <div>
@@ -30,13 +29,11 @@ class SignUpFormBase extends Component {
         this.props.firebase
             .doCreateUserWithEmailAndPassword(email, passwordOne)
             .then(authUser => {
-                return this.props.firebase
-                  .user(authUser.user.uid)
-                  .set({
+                return this.props.firebase.user(authUser.user.uid).set({
                     username,
-                    email,
-                  })
-              })
+                    email
+                })
+            })
             .catch(error => {
                 this.setState({ error })
             })
@@ -49,13 +46,7 @@ class SignUpFormBase extends Component {
     }
 
     render() {
-        const {
-            username,
-            email,
-            passwordOne,
-            passwordTwo,
-            error,
-        } = this.state
+        const { username, email, passwordOne, passwordTwo, error } = this.state
 
         const isInvalid =
             passwordOne !== passwordTwo ||
@@ -66,34 +57,34 @@ class SignUpFormBase extends Component {
         return (
             <form onSubmit={this.onSubmit}>
                 <input
-                    name="username"
+                    name='username'
                     value={username}
                     onChange={this.onChange}
-                    type="text"
-                    placeholder="Full Name"
+                    type='text'
+                    placeholder='Full Name'
                 />
                 <input
-                    name="email"
+                    name='email'
                     value={email}
                     onChange={this.onChange}
-                    type="text"
-                    placeholder="Email Address"
+                    type='text'
+                    placeholder='Email Address'
                 />
                 <input
-                    name="passwordOne"
+                    name='passwordOne'
                     value={passwordOne}
                     onChange={this.onChange}
-                    type="password"
-                    placeholder="Password"
+                    type='password'
+                    placeholder='Password'
                 />
                 <input
-                    name="passwordTwo"
+                    name='passwordTwo'
                     value={passwordTwo}
                     onChange={this.onChange}
-                    type="password"
-                    placeholder="Confirm Password"
+                    type='password'
+                    placeholder='Confirm Password'
                 />
-                <button disabled={isInvalid} type="submit">
+                <button disabled={isInvalid} type='submit'>
                     Sign Up
                 </button>
                 {error && <p>{error.message}</p>}
@@ -104,7 +95,7 @@ class SignUpFormBase extends Component {
 
 const SignUpForm = compose(
     withRouter,
-    withFirebase,
+    withFirebase
 )(SignUpFormBase)
 
 const SignUpLink = () => (

@@ -5,14 +5,14 @@ import { PasswordForgetForm } from '../authentication/passwordForget'
 import PasswordChangeForm from '../authentication/passwordChange'
 
 const AccountPage = () => (
-  <AuthUserContext.Consumer>
-    {authUser => (
-      <>
-        <PasswordForgetForm />
-        <PasswordChangeForm />
-      </>
-    )}
-  </AuthUserContext.Consumer>
+    <AuthUserContext.Consumer>
+        {authUser => (
+            <>
+                <PasswordForgetForm />
+                <PasswordChangeForm />
+            </>
+        )}
+    </AuthUserContext.Consumer>
 )
 
 const condition = authUser => !!authUser

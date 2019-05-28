@@ -13,44 +13,43 @@ import SignInPage from './components/authentication/signin'
 import PasswordForgetPage from './components/authentication/passwordForget'
 import AccountPage from './components/account'
 
-
 class App extends Component {
-  state = {
-    authUser: null
-  }
+    state = {
+        authUser: null
+    }
 
-  componentDidMount() {
-    this.setState({ appointments: [], pointedHours: 0 })
-    this.listener = this.props.firebase.auth.onAuthStateChanged(
-      authUser => {
-        authUser
-          ? this.setState({ authUser })
-          : this.setState({ authUser: null })
-      },
-    )
-  }
+    componentDidMount() {
+        this.setState({ appointments: [], pointedHours: 0 })
+        this.listener = this.props.firebase.auth.onAuthStateChanged(
+            authUser => {
+                authUser
+                    ? this.setState({ authUser })
+                    : this.setState({ authUser: null })
+            }
+        )
+    }
 
-  componentWillUnmount() {
-    this.listener()
-  }
+    componentWillUnmount() {
+        this.listener()
+    }
 
-  render() {
-    return (
-      <AuthUserContext.Provider value={this.state.authUser}>
-        <Router>
-          <Navigation authUser={ this.state.authUser }/>
-          <Route path={ROUTES.HOME} exact component={Home} />
-          <Route path={ROUTES.SIGN_UP} component={SignUpPage} />
-          <Route path={ROUTES.SIGN_IN} component={SignInPage} />
-          <Route
-            path={ROUTES.PASSWORD_FORGET}
-            component={PasswordForgetPage}
-          />
-          <Route path={ROUTES.ACCOUNT} component={AccountPage} />
-        </Router>
-      </AuthUserContext.Provider>
-    )
-  }
+    render() {
+        return (
+            <AuthUserContext.Provider value={this.state.authUser}>
+                <Router>
+                    <Navigation authUser={this.state.authUser} />
+                    <Route path={ROUTES.HOME} exact component={Home} />
+                    <Route path={ROUTES.SIGN_UP} component={SignUpPage} />
+                    <Route path={ROUTES.SIGN_IN} component={SignInPage} />
+                    <Route
+                        path={ROUTES.PASSWORD_FORGET}
+                        component={PasswordForgetPage}
+                    />
+                    <Route path={ROUTES.ACCOUNT} component={AccountPage} />
+                </Router>
+            </AuthUserContext.Provider>
+        )
+    }
 }
 
 export default withFirebase(App)

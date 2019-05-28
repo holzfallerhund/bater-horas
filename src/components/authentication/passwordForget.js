@@ -6,14 +6,14 @@ import * as ROUTES from '../../constants/routes'
 
 const PasswordForgetPage = () => (
     <>
-        <h1 className="title is-1">Esqueceu a senha?</h1>
+        <h1 className='title is-1'>Esqueceu a senha?</h1>
         <PasswordForgetForm />
     </>
 )
 
 const INITIAL_STATE = {
     email: '',
-    error: null,
+    error: null
 }
 
 class PasswordForgetFormBase extends Component {
@@ -49,32 +49,30 @@ class PasswordForgetFormBase extends Component {
 
         return (
             <form onSubmit={this.onSubmit}>
-                <div className="field">
-                    <label className="label">E-mail</label>
-                    <p className="control has-icons-left has-icons-right">
+                <div className='field'>
+                    <label className='label'>E-mail</label>
+                    <p className='control has-icons-left has-icons-right'>
                         <input
                             className={`input ${error && 'is-danger'}`}
-                            type="email"
-                            name="email"
-                            placeholder="Seu e-mail"
+                            type='email'
+                            name='email'
+                            placeholder='Seu e-mail'
                             value={this.state.email}
                             onChange={this.onChange}
                         />
-                        <span className="icon is-small is-left">
-                            <i className="fas fa-envelope"></i>
+                        <span className='icon is-small is-left'>
+                            <i className='fas fa-envelope' />
                         </span>
                     </p>
                 </div>
-                {error &&
-                    <p className="help is-danger">{error.message}</p>
-                }
-                <div className="control">
+                {error && <p className='help is-danger'>{error.message}</p>}
+                <div className='control'>
                     <button
                         disabled={isInvalid}
-                        type="submit"
-                        className="button is-link">
+                        type='submit'
+                        className='button is-link'>
                         Resetar senha
-                        </button>
+                    </button>
                 </div>
             </form>
         )

@@ -14,7 +14,7 @@ const withAuthorization = condition => Component => {
                     if (!condition(authUser)) {
                         this.props.history.push(ROUTES.SIGN_IN)
                     }
-                },
+                }
             )
         }
 
@@ -25,9 +25,11 @@ const withAuthorization = condition => Component => {
         render() {
             return (
                 <AuthUserContext.Consumer>
-                  {authUser =>
-                    condition(authUser) ? <Component {...this.props} /> : null
-                  }
+                    {authUser =>
+                        condition(authUser) ? (
+                            <Component {...this.props} />
+                        ) : null
+                    }
                 </AuthUserContext.Consumer>
             )
         }
@@ -35,7 +37,7 @@ const withAuthorization = condition => Component => {
 
     return compose(
         withRouter,
-        withFirebase,
+        withFirebase
     )(WithAuthorization)
 }
 

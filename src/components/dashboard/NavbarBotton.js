@@ -37,9 +37,9 @@ export default class NavbarBotton extends PureComponent {
                                 isActive: !this.state.isActive
                             })
                         }}>
-                        <span aria-hidden='true'></span>
-                        <span aria-hidden='true'></span>
-                        <span aria-hidden='true'></span>
+                        <span aria-hidden='true' />
+                        <span aria-hidden='true' />
+                        <span aria-hidden='true' />
                     </a>
                 </div>
                 <div id='botton-navbar' className={`navbar-menu ${isActive}`}>
@@ -49,26 +49,42 @@ export default class NavbarBotton extends PureComponent {
                             contents={['2021', '2020', '2019']}
                             selected={this.state.values.year}
                             onSelectChose={(name, value) => {
-                                this.setState(evolve({
-                                    values: assoc(name, value)
-                                }), () => {
-                                    this.props.changeDate(this.state.values)
-                                })
+                                this.setState(
+                                    evolve({
+                                        values: assoc(name, value)
+                                    }),
+                                    () => {
+                                        this.props.changeDate(this.state.values)
+                                    }
+                                )
                             }}
                         />
                         <NavbarDropdownUp
                             name='month'
                             contents={[
-                                '01', '02', '03', '04', '05', '06',
-                                '07', '08', '09', '10', '11', '12',
+                                '01',
+                                '02',
+                                '03',
+                                '04',
+                                '05',
+                                '06',
+                                '07',
+                                '08',
+                                '09',
+                                '10',
+                                '11',
+                                '12'
                             ]}
                             selected={this.state.values.month}
                             onSelectChose={(name, value) => {
-                                this.setState(evolve({
-                                    values: assoc(name, value)
-                                }), () => {
-                                    this.props.changeDate(this.state.values)
-                                })
+                                this.setState(
+                                    evolve({
+                                        values: assoc(name, value)
+                                    }),
+                                    () => {
+                                        this.props.changeDate(this.state.values)
+                                    }
+                                )
                             }}
                         />
                     </div>

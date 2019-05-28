@@ -15,7 +15,10 @@ class NavBar extends PureComponent {
         const isActive = this.state.isActive && ' is-active'
 
         return (
-            <nav className='navbar is-primary is-fixed-top' role='navigation' aria-label='main navigation'>
+            <nav
+                className='navbar is-primary is-fixed-top'
+                role='navigation'
+                aria-label='main navigation'>
                 <div className='navbar-brand'>
                     <a
                         className='navbar-item'
@@ -23,7 +26,7 @@ class NavBar extends PureComponent {
                             this.props.history.push(ROUTES.HOME)
                         }}>
                         <img
-                            src={ logo }
+                            src={logo}
                             width='112'
                             height='28'
                             alt='Bater horas logo'
@@ -40,12 +43,14 @@ class NavBar extends PureComponent {
                                 isActive: !this.state.isActive
                             })
                         }}>
-                        <span aria-hidden='true'></span>
-                        <span aria-hidden='true'></span>
-                        <span aria-hidden='true'></span>
+                        <span aria-hidden='true' />
+                        <span aria-hidden='true' />
+                        <span aria-hidden='true' />
                     </a>
                 </div>
-                <div id='navbarBasicExample' className={`navbar-menu ${isActive}`}>
+                <div
+                    id='navbarBasicExample'
+                    className={`navbar-menu ${isActive}`}>
                     <div className='navbar-start'>
                         <a
                             className='navbar-item'
