@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { withAuthorization } from '../session'
-import Table from '../table'
-import NavbarBotton from '../dashboard/navbarBotton'
+import Table from '../table/Table'
+import NavbarBotton from './NavbarBotton'
 import {
   apply,
   dropLast,

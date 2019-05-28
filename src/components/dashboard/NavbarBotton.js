@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { PureComponent } from 'react'
 import { evolve, assoc } from 'ramda'
-import NavbarDropdownUp from './navbarDropdownUp'
+import NavbarDropdownUp from './NavbarDropdownUp'
 import { format } from 'date-fns'
 
 export default class NavbarBotton extends PureComponent {

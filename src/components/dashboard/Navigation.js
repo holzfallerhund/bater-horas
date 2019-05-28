@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-import Navbar from './navbar'
+import Navbar from './Navbar'
 import * as ROUTES from '../../constants/routes'
 
 import { AuthUserContext } from '../session'

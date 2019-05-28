@@ -2,11 +2,11 @@
 import React, { PureComponent } from 'react'
 import { withRouter } from 'react-router-dom'
 import SignOutButton from '../authentication/siginout'
-import UserName from '../UserName'
+import UserName from './UserName'
 import * as ROUTES from '../../constants/routes'
 import logo from '../../assets/relogio-escrito.svg'
 
-class NavBarContent extends PureComponent {
+class NavBar extends PureComponent {
     state = {
         isActive: false
     }
@@ -68,6 +68,6 @@ class NavBarContent extends PureComponent {
     }
 }
 
-const Navbar = withRouter(NavBarContent)
+const Navbar = withRouter(NavBar)
 
 export default Navbar
