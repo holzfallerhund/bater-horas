@@ -37,10 +37,21 @@ export class Home extends Component {
         }
     }
 
-    handlePointedHours() {
-        return this.state.appointments.length % 2 === 0
-            ? date(this.state.appointments)
-            : date(dropLast(1, this.state.appointments))
+    handleChangeDate = dateTime => {
+        this.setState({ dateTime }, () => {
+            this.getDate()
+        })
+    }
+
+    handleTextUpdate = event => {
+        this.props.firebase
+            .writeDescription(
+                this.state.dateTime.year + '-' + this.state.dateTime.month,
+                event.target.id
+            )
+            .update({
+                description: event.target.value
+            })
     }
 
     handPoint = () => {
@@ -52,6 +63,12 @@ export class Home extends Component {
             this.state.dateTime.year + '-' + this.state.dateTime.month,
             appointment
         )
+    }
+
+    handlePointedHours() {
+        return this.state.appointments.length % 2 === 0
+            ? date(this.state.appointments)
+            : date(dropLast(1, this.state.appointments))
     }
 
     getDate() {
@@ -74,17 +91,6 @@ export class Home extends Component {
             })
     }
 
-    handleTextUpdate = event => {
-        this.props.firebase
-            .writeDescription(
-                this.state.dateTime.year + '-' + this.state.dateTime.month,
-                event.target.id
-            )
-            .update({
-                description: event.target.value
-            })
-    }
-
     componentDidMount() {
         this.getDate()
     }
@@ -104,11 +110,7 @@ export class Home extends Component {
                     </div>
                 </section>
                 <NavbarBotton
-                    changeDate={ dateTime => {
-                        this.setState({ dateTime }, () => {
-                            this.getDate()
-                        })
-                    } }
+                    changeDate={ handleChangeDate }
                     handPoint={ this.handPoint }
                 />
             </>

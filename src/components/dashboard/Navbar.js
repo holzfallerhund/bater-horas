@@ -11,6 +11,20 @@ class NavBar extends PureComponent {
         isActive: false
     }
 
+    handleGoHome = () => {
+        this.props.history.push(ROUTES.HOME)
+    }
+
+    handleGoToAccount = () => {
+        this.props.history.push(ROUTES.ACCOUNT)
+    }
+
+    handleToggleBurger = () => {
+        this.setState({
+            isActive: !this.state.isActive
+        })
+    }
+
     render() {
         const isActive = this.state.isActive && ' is-active'
 
@@ -22,9 +36,7 @@ class NavBar extends PureComponent {
                 <div className='navbar-brand'>
                     <a
                         className='navbar-item'
-                        onClick={ () => {
-                            this.props.history.push(ROUTES.HOME)
-                        } }>
+                        onClick={ handleGoHome }>
                         <img
                             src={ logo }
                             width='112'
@@ -38,11 +50,7 @@ class NavBar extends PureComponent {
                         aria-label='menu'
                         aria-expanded='false'
                         data-target='navbarBasicExample'
-                        onClick={ () => {
-                            this.setState({
-                                isActive: !this.state.isActive
-                            })
-                        } }>
+                        onClick={ handleToggleBurger }>
                         <span aria-hidden='true' />
                         <span aria-hidden='true' />
                         <span aria-hidden='true' />
@@ -54,9 +62,7 @@ class NavBar extends PureComponent {
                     <div className='navbar-start'>
                         <a
                             className='navbar-item'
-                            onClick={ () => {
-                                this.props.history.push(ROUTES.ACCOUNT)
-                            } }>
+                            onClick={ handleGoToAccount }>
                             Olá, <UserName />
                         </a>
                     </div>

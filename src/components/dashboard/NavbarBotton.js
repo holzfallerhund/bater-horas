@@ -13,6 +13,34 @@ export default class NavbarBotton extends PureComponent {
         }
     }
 
+    handleTogleBurger = () => {
+        this.setState({
+            isActive: !this.state.isActive
+        })
+    }
+
+    handleOnSelectChose = (name, value) => {
+        this.setState(
+            evolve({
+                values: assoc(name, value)
+            }),
+            () => {
+                this.props.changeDate(this.state.values)
+            }
+        )
+    }
+
+    handleOnChoseValue = (name, value) => {
+        this.setState(
+            evolve({
+                values: assoc(name, value)
+            }),
+            () => {
+                this.props.changeDate(this.state.values)
+            }
+        )
+    }
+
     render() {
         const isActive = this.state.isActive && 'is-active'
 
@@ -32,11 +60,7 @@ export default class NavbarBotton extends PureComponent {
                         aria-label='menu'
                         aria-expanded='false'
                         data-target='botton-navbar'
-                        onClick={ () => {
-                            this.setState({
-                                isActive: !this.state.isActive
-                            })
-                        } }>
+                        onClick={ handleTogleBurger }>
                         <span aria-hidden='true' />
                         <span aria-hidden='true' />
                         <span aria-hidden='true' />
@@ -48,16 +72,7 @@ export default class NavbarBotton extends PureComponent {
                             name='year'
                             contents={ ['2021', '2020', '2019'] }
                             selected={ this.state.values.year }
-                            onSelectChose={ (name, value) => {
-                                this.setState(
-                                    evolve({
-                                        values: assoc(name, value)
-                                    }),
-                                    () => {
-                                        this.props.changeDate(this.state.values)
-                                    }
-                                )
-                            } }
+                            onSelectChose={ handleOnChoseValue }
                         />
                         <NavbarDropdownUp
                             name='month'
@@ -76,16 +91,7 @@ export default class NavbarBotton extends PureComponent {
                                 '12'
                             ] }
                             selected={ this.state.values.month }
-                            onSelectChose={ (name, value) => {
-                                this.setState(
-                                    evolve({
-                                        values: assoc(name, value)
-                                    }),
-                                    () => {
-                                        this.props.changeDate(this.state.values)
-                                    }
-                                )
-                            } }
+                            onSelectChose={ handleOnSelectChose }
                         />
                     </div>
                     <div className='navbar-end'>

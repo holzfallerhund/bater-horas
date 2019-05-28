@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React from 'react'
 
 import { AuthUserContext, withAuthorization } from '../session'
@@ -6,7 +7,7 @@ import PasswordChangeForm from '../authentication/passwordChange'
 
 const AccountPage = () => (
     <AuthUserContext.Consumer>
-        { (authUser) => (
+        { authUser => (
             <>
                 <PasswordForgetForm />
                 <PasswordChangeForm />
