@@ -36,7 +36,7 @@ class NavBar extends PureComponent {
                 <div className='navbar-brand'>
                     <a
                         className='navbar-item'
-                        onClick={ handleGoHome }>
+                        onClick={ this.handleGoHome }>
                         <img
                             src={ logo }
                             width='112'
@@ -50,7 +50,7 @@ class NavBar extends PureComponent {
                         aria-label='menu'
                         aria-expanded='false'
                         data-target='navbarBasicExample'
-                        onClick={ handleToggleBurger }>
+                        onClick={ this.handleToggleBurger }>
                         <span aria-hidden='true' />
                         <span aria-hidden='true' />
                         <span aria-hidden='true' />
@@ -62,7 +62,7 @@ class NavBar extends PureComponent {
                     <div className='navbar-start'>
                         <a
                             className='navbar-item'
-                            onClick={ handleGoToAccount }>
+                            onClick={ this.handleGoToAccount }>
                             Olá, <UserName />
                         </a>
                     </div>

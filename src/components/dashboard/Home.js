@@ -65,7 +65,7 @@ export class Home extends Component {
         )
     }
 
-    handlePointedHours() {
+    handlePointedHours = () => {
         return this.state.appointments.length % 2 === 0
             ? date(this.state.appointments)
             : date(dropLast(1, this.state.appointments))
@@ -110,7 +110,7 @@ export class Home extends Component {
                     </div>
                 </section>
                 <NavbarBotton
-                    changeDate={ handleChangeDate }
+                    changeDate={ this.handleChangeDate }
                     handPoint={ this.handPoint }
                 />
             </>

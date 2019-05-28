@@ -33,7 +33,7 @@ export default class NavbarDropdownUp extends PureComponent {
                 }>
                 <a
                     className='navbar-link'
-                    onClick={ handleOnClick }>
+                    onClick={ this.handleOnClick }>
                     { this.props.selected || this.props.contents[0] }
                 </a>
                 <div className='navbar-dropdown'>
@@ -41,7 +41,7 @@ export default class NavbarDropdownUp extends PureComponent {
                         <a
                             key={ key }
                             className='navbar-item'
-                            onClick={ handleClick }>
+                            onClick={ this.handleClick }>
                             { content }
                         </a>
                     )) }
