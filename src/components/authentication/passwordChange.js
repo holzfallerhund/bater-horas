@@ -40,14 +40,14 @@ class PasswordChangeForm extends Component {
         const isInvalid = passwordOne !== passwordTwo || passwordOne === ''
 
         return (
-            <form onSubmit={this.onSubmit}>
+            <form onSubmit={ this.onSubmit }>
                 <div className='field'>
                     <label className='label'>Nova senha</label>
                     <input
                         className='input'
                         name='passwordOne'
-                        value={passwordOne}
-                        onChange={this.onChange}
+                        value={ passwordOne }
+                        onChange={ this.onChange }
                         type='password'
                         placeholder='Digite a nova senha...'
                     />
@@ -57,21 +57,21 @@ class PasswordChangeForm extends Component {
                     <input
                         className='input'
                         name='passwordTwo'
-                        value={passwordTwo}
-                        onChange={this.onChange}
+                        value={ passwordTwo }
+                        onChange={ this.onChange }
                         type='password'
                         placeholder='Confirm New Password'
                     />
                 </div>
                 <div className='control'>
                     <button
-                        disabled={isInvalid}
+                        disabled={ isInvalid }
                         type='submit'
                         className='button is-link'>
                         Resetar senha
                     </button>
                 </div>
-                {error && <p className='help is-danger'>{error.message}</p>}
+                { error && <p className='help is-danger'>{ error.message }</p> }
             </form>
         )
     }

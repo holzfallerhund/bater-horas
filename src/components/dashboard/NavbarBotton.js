@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { PureComponent } from 'react'
-import { evolve, assoc } from 'ramda'
+import { assoc, evolve } from 'ramda'
 import NavbarDropdownUp from './NavbarDropdownUp'
 import { format } from 'date-fns'
 
@@ -21,34 +21,34 @@ export default class NavbarBotton extends PureComponent {
                 className='navbar is-light is-fixed-bottom'
                 role='navigation'
                 aria-label='main navigation'
-                style={{
+                style={ {
                     height: isActive && '100vh',
                     overflowY: isActive && 'auto'
-                }}>
+                } }>
                 <div className='navbar-brand'>
                     <a
                         role='button'
-                        className={`navbar-burger burger ${isActive}`}
+                        className={ `navbar-burger burger ${isActive}` }
                         aria-label='menu'
                         aria-expanded='false'
                         data-target='botton-navbar'
-                        onClick={() => {
+                        onClick={ () => {
                             this.setState({
                                 isActive: !this.state.isActive
                             })
-                        }}>
+                        } }>
                         <span aria-hidden='true' />
                         <span aria-hidden='true' />
                         <span aria-hidden='true' />
                     </a>
                 </div>
-                <div id='botton-navbar' className={`navbar-menu ${isActive}`}>
+                <div id='botton-navbar' className={ `navbar-menu ${isActive}` }>
                     <div className='navbar-start'>
                         <NavbarDropdownUp
                             name='year'
-                            contents={['2021', '2020', '2019']}
-                            selected={this.state.values.year}
-                            onSelectChose={(name, value) => {
+                            contents={ ['2021', '2020', '2019'] }
+                            selected={ this.state.values.year }
+                            onSelectChose={ (name, value) => {
                                 this.setState(
                                     evolve({
                                         values: assoc(name, value)
@@ -57,11 +57,11 @@ export default class NavbarBotton extends PureComponent {
                                         this.props.changeDate(this.state.values)
                                     }
                                 )
-                            }}
+                            } }
                         />
                         <NavbarDropdownUp
                             name='month'
-                            contents={[
+                            contents={ [
                                 '01',
                                 '02',
                                 '03',
@@ -74,9 +74,9 @@ export default class NavbarBotton extends PureComponent {
                                 '10',
                                 '11',
                                 '12'
-                            ]}
-                            selected={this.state.values.month}
-                            onSelectChose={(name, value) => {
+                            ] }
+                            selected={ this.state.values.month }
+                            onSelectChose={ (name, value) => {
                                 this.setState(
                                     evolve({
                                         values: assoc(name, value)
@@ -85,13 +85,13 @@ export default class NavbarBotton extends PureComponent {
                                         this.props.changeDate(this.state.values)
                                     }
                                 )
-                            }}
+                            } }
                         />
                     </div>
                     <div className='navbar-end'>
                         <a
                             className='navbar-item'
-                            onClick={this.props.handPoint}>
+                            onClick={ this.props.handPoint }>
                             Novo ponto
                         </a>
                     </div>

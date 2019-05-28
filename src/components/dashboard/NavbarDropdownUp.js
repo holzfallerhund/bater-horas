@@ -17,18 +17,18 @@ export default class NavbarDropdownUp extends PureComponent {
                 }>
                 <a
                     className='navbar-link'
-                    onClick={() => {
+                    onClick={ () => {
                         this.setState({
                             isActive: !this.state.isActive
                         })
-                    }}>
-                    {this.props.selected || this.props.contents[0]}
+                    } }>
+                    { this.props.selected || this.props.contents[0] }
                 </a>
                 <div className='navbar-dropdown'>
-                    {this.props.contents.map(content => (
+                    { this.props.contents.map(content => (
                         <a
                             className='navbar-item'
-                            onClick={() => {
+                            onClick={ () => {
                                 this.setState({
                                     isActive: !this.state.isActive
                                 })
@@ -36,10 +36,10 @@ export default class NavbarDropdownUp extends PureComponent {
                                     this.props.name,
                                     content
                                 )
-                            }}>
-                            {content}
+                            } }>
+                            { content }
                         </a>
-                    ))}
+                    )) }
                 </div>
             </div>
         )

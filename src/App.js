@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { Route, BrowserRouter as Router } from 'react-router-dom'
 import { withFirebase } from './components/firebase'
 import { AuthUserContext } from './components/session'
 import 'bulma/css/bulma.min.css'
@@ -35,17 +35,17 @@ class App extends Component {
 
     render() {
         return (
-            <AuthUserContext.Provider value={this.state.authUser}>
+            <AuthUserContext.Provider value={ this.state.authUser }>
                 <Router>
-                    <Navigation authUser={this.state.authUser} />
-                    <Route path={ROUTES.HOME} exact component={Home} />
-                    <Route path={ROUTES.SIGN_UP} component={SignUpPage} />
-                    <Route path={ROUTES.SIGN_IN} component={SignInPage} />
+                    <Navigation authUser={ this.state.authUser } />
+                    <Route path={ ROUTES.HOME } exact component={ Home } />
+                    <Route path={ ROUTES.SIGN_UP } component={ SignUpPage } />
+                    <Route path={ ROUTES.SIGN_IN } component={ SignInPage } />
                     <Route
-                        path={ROUTES.PASSWORD_FORGET}
-                        component={PasswordForgetPage}
+                        path={ ROUTES.PASSWORD_FORGET }
+                        component={ PasswordForgetPage }
                     />
-                    <Route path={ROUTES.ACCOUNT} component={AccountPage} />
+                    <Route path={ ROUTES.ACCOUNT } component={ AccountPage } />
                 </Router>
             </AuthUserContext.Provider>
         )

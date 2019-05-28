@@ -6,7 +6,7 @@ const TableFooter = ({ dates, pointedHours }) => {
             <tfoot>
                 <tr>
                     <th>Total de horas:</th>
-                    <th>{pointedHours}</th>
+                    <th>{ pointedHours }</th>
                 </tr>
             </tfoot>
         )

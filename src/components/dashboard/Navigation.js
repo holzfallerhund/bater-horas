@@ -9,7 +9,7 @@ import { AuthUserContext } from '../session'
 const Navigation = () => (
     <div>
         <AuthUserContext.Consumer>
-            {authUser =>
+            { authUser =>
                 authUser ? <NavigationAuth /> : <NavigationNonAuth />
             }
         </AuthUserContext.Consumer>
@@ -21,7 +21,7 @@ const NavigationAuth = () => <Navbar />
 const NavigationNonAuth = () => (
     <ul>
         <li>
-            <Link to={ROUTES.SIGN_IN}>Sign In</Link>
+            <Link to={ ROUTES.SIGN_IN }>Sign In</Link>
         </li>
     </ul>
 )

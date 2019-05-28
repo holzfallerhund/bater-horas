@@ -55,39 +55,39 @@ class SignUpFormBase extends Component {
             username === ''
 
         return (
-            <form onSubmit={this.onSubmit}>
+            <form onSubmit={ this.onSubmit }>
                 <input
                     name='username'
-                    value={username}
-                    onChange={this.onChange}
+                    value={ username }
+                    onChange={ this.onChange }
                     type='text'
                     placeholder='Full Name'
                 />
                 <input
                     name='email'
-                    value={email}
-                    onChange={this.onChange}
+                    value={ email }
+                    onChange={ this.onChange }
                     type='text'
                     placeholder='Email Address'
                 />
                 <input
                     name='passwordOne'
-                    value={passwordOne}
-                    onChange={this.onChange}
+                    value={ passwordOne }
+                    onChange={ this.onChange }
                     type='password'
                     placeholder='Password'
                 />
                 <input
                     name='passwordTwo'
-                    value={passwordTwo}
-                    onChange={this.onChange}
+                    value={ passwordTwo }
+                    onChange={ this.onChange }
                     type='password'
                     placeholder='Confirm Password'
                 />
-                <button disabled={isInvalid} type='submit'>
+                <button disabled={ isInvalid } type='submit'>
                     Sign Up
                 </button>
-                {error && <p>{error.message}</p>}
+                { error && <p>{ error.message }</p> }
             </form>
         )
     }
@@ -100,7 +100,7 @@ const SignUpForm = compose(
 
 const SignUpLink = () => (
     <p>
-        Don't have an account? <Link to={ROUTES.SIGN_UP}>Sign Up</Link>
+        Don't have an account? <Link to={ ROUTES.SIGN_UP }>Sign Up</Link>
     </p>
 )
 

@@ -22,11 +22,11 @@ class NavBar extends PureComponent {
                 <div className='navbar-brand'>
                     <a
                         className='navbar-item'
-                        onClick={() => {
+                        onClick={ () => {
                             this.props.history.push(ROUTES.HOME)
-                        }}>
+                        } }>
                         <img
-                            src={logo}
+                            src={ logo }
                             width='112'
                             height='28'
                             alt='Bater horas logo'
@@ -34,15 +34,15 @@ class NavBar extends PureComponent {
                     </a>
                     <a
                         role='button'
-                        className={`navbar-burger burger ${isActive}`}
+                        className={ `navbar-burger burger ${isActive}` }
                         aria-label='menu'
                         aria-expanded='false'
                         data-target='navbarBasicExample'
-                        onClick={() => {
+                        onClick={ () => {
                             this.setState({
                                 isActive: !this.state.isActive
                             })
-                        }}>
+                        } }>
                         <span aria-hidden='true' />
                         <span aria-hidden='true' />
                         <span aria-hidden='true' />
@@ -50,13 +50,13 @@ class NavBar extends PureComponent {
                 </div>
                 <div
                     id='navbarBasicExample'
-                    className={`navbar-menu ${isActive}`}>
+                    className={ `navbar-menu ${isActive}` }>
                     <div className='navbar-start'>
                         <a
                             className='navbar-item'
-                            onClick={() => {
+                            onClick={ () => {
                                 this.props.history.push(ROUTES.ACCOUNT)
-                            }}>
+                            } }>
                             Olá, <UserName />
                         </a>
                     </div>

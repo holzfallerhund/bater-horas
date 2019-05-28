@@ -6,12 +6,12 @@ import PasswordChangeForm from '../authentication/passwordChange'
 
 const AccountPage = () => (
     <AuthUserContext.Consumer>
-        {authUser => (
+        { (authUser) => (
             <>
                 <PasswordForgetForm />
                 <PasswordChangeForm />
             </>
-        )}
+        ) }
     </AuthUserContext.Consumer>
 )
 

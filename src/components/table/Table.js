@@ -3,7 +3,7 @@ import TableBody from './TableCell'
 import TableFooter from './TableFooter'
 
 const Table = ({ appointments, pointedHours, handleTextUpdate }) => (
-    <table className='table' style={{ width: '100%' }}>
+    <table className='table' style={ { width: '100%' } }>
         <thead>
             <tr>
                 <th>Horário</th>
@@ -11,10 +11,10 @@ const Table = ({ appointments, pointedHours, handleTextUpdate }) => (
             </tr>
         </thead>
         <TableBody
-            appointments={appointments}
-            handleTextUpdate={handleTextUpdate}
+            appointments={ appointments }
+            handleTextUpdate={ handleTextUpdate }
         />
-        <TableFooter dates={appointments} pointedHours={pointedHours} />
+        <TableFooter dates={ appointments } pointedHours={ pointedHours } />
     </table>
 )
 

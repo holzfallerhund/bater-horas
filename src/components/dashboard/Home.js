@@ -97,19 +97,19 @@ export class Home extends Component {
                 <section className='section'>
                     <div className='container'>
                         <Table
-                            appointments={appointments}
-                            pointedHours={this.handlePointedHours()}
-                            handleTextUpdate={this.handleTextUpdate}
+                            appointments={ appointments }
+                            pointedHours={ this.handlePointedHours() }
+                            handleTextUpdate={ this.handleTextUpdate }
                         />
                     </div>
                 </section>
                 <NavbarBotton
-                    changeDate={dateTime => {
+                    changeDate={ dateTime => {
                         this.setState({ dateTime }, () => {
                             this.getDate()
                         })
-                    }}
-                    handPoint={this.handPoint}
+                    } }
+                    handPoint={ this.handPoint }
                 />
             </>
         )
