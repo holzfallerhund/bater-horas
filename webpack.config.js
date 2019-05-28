@@ -2,7 +2,7 @@ const path = require('path')
 const webpack = require('webpack')
 const HtmlWebPackPlugin = require('html-webpack-plugin')
 const CompressionPlugin = require('compression-webpack-plugin')
-var dotenv = require('dotenv').config({path: __dirname + '/.env'});
+const Dotenv = require('dotenv-webpack')
 
 module.exports = {
     entry: ['./src/index.js'],
@@ -15,10 +15,8 @@ module.exports = {
     resolve: {
         extensions: ['.js', '.jsx'],
         alias: {
-            react: path
-                .resolve(__dirname, 'node_modules', 'react'),
-            '@horas': path
-                .resolve(__dirname, 'src')
+            react: path.resolve(__dirname, 'node_modules', 'react'),
+            '@horas': path.resolve(__dirname, 'src')
         }
     },
     module: {
@@ -42,17 +40,20 @@ module.exports = {
                 use: ['file-loader'],
                 exclude: /node_modules/
             },
-            { test: /\.(png|woff|woff2|eot|ttf|svg)$/, loader: 'url-loader?limit=100000' },
+            {
+                test: /\.(png|woff|woff2|eot|ttf|svg)$/,
+                loader: 'url-loader?limit=100000'
+            },
             {
                 test: /\.css$/,
                 use: [
                     {
-                        loader: 'style-loader',
+                        loader: 'style-loader'
                     },
                     {
                         loader: 'css-loader',
                         options: {
-                            sourceMap: true,
+                            sourceMap: true
                         }
                     }
                 ]
@@ -80,9 +81,7 @@ module.exports = {
             filename: './index.html',
             favicon: './public/favicon.ico'
         }),
-        new webpack.DefinePlugin({
-            "process.env": dotenv.parsed
-        })
+        new Dotenv()
     ],
     optimization: {
         runtimeChunk: 'single',
