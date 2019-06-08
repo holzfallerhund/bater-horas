@@ -3,6 +3,8 @@ const webpack = require('webpack')
 const HtmlWebPackPlugin = require('html-webpack-plugin')
 const CompressionPlugin = require('compression-webpack-plugin')
 const Dotenv = require('dotenv-webpack')
+const { GenerateSW } = require('workbox-webpack-plugin')
+const ProgressBarPlugin = require('progress-bar-webpack-plugin')
 
 module.exports = {
     entry: ['./src/index.js'],
@@ -68,6 +70,7 @@ module.exports = {
     },
     plugins: [
         new webpack.HashedModuleIdsPlugin(),
+        new ProgressBarPlugin(),
         new CompressionPlugin({
             cache: true,
             algorithm: 'gzip',
@@ -81,7 +84,16 @@ module.exports = {
             filename: './index.html',
             favicon: './public/favicon.ico'
         }),
-        new Dotenv()
+        new Dotenv(),
+        new GenerateSW({
+            swDest: 'sw.js',
+            clientsClaim: true,
+            skipWaiting: true,
+            runtimeCaching: [{
+                urlPattern: new RegExp('googleapis'),
+                handler: 'StaleWhileRevalidate'
+            }]
+        })
     ],
     optimization: {
         runtimeChunk: 'single',
