@@ -11,7 +11,6 @@ import Home from './components/dashboard/Home'
 import SignUpPage from './components/authentication/signup'
 import SignInPage from './components/authentication/signin'
 import PasswordForgetPage from './components/authentication/passwordForget'
-import AccountPage from './components/account'
 
 class App extends Component {
     state = {
@@ -45,7 +44,6 @@ class App extends Component {
                         path={ ROUTES.PASSWORD_FORGET }
                         component={ PasswordForgetPage }
                     />
-                    <Route path={ ROUTES.ACCOUNT } component={ AccountPage } />
                 </Router>
             </AuthUserContext.Provider>
         )

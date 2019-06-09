@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Link, withRouter } from 'react-router-dom'
 import { compose } from 'recompose'
 
+import BackToSignPage from './backToSignPage'
 import { withFirebase } from '../firebase'
 import { StyledSection } from './signin'
 import * as ROUTES from '../../constants/routes'
@@ -130,10 +131,7 @@ class SignUpFormBase extends Component {
                     </div>
                 ) }
                 <div className='has-text-centered'>
-                    <button
-                        className='button is-vcentered is-primary'>
-                            Voltar
-                    </button>
+                    <BackToSignPage />
                 </div>
             </StyledSection>
         )

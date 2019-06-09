@@ -15,10 +15,6 @@ class NavBar extends PureComponent {
         this.props.history.push(ROUTES.HOME)
     }
 
-    handleGoToAccount = () => {
-        this.props.history.push(ROUTES.ACCOUNT)
-    }
-
     handleToggleBurger = () => {
         this.setState({
             isActive: !this.state.isActive
@@ -60,9 +56,7 @@ class NavBar extends PureComponent {
                     id='navbarBasicExample'
                     className={ `navbar-menu ${isActive}` }>
                     <div className='navbar-start'>
-                        <a
-                            className='navbar-item'
-                            onClick={ this.handleGoToAccount }>
+                        <a className='navbar-item'>
                             Olá, <UserName />
                         </a>
                     </div>
