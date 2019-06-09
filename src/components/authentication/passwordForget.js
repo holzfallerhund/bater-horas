@@ -43,13 +43,7 @@ class PasswordForgetFormBase extends Component {
 
         return (
             <StyledSection className='section'>
-                <div className='has-text-centered'>
-                    <img
-                        className='login-logo'
-                        name='login-logo'
-                        src='assets/img/logo_r_resumme.png'
-                    />
-                </div>
+                <h3 className='title is-3'>Troque a sua senha</h3>
                 <form onSubmit={ this.onSubmit }>
                     <div className='field'>
                         <label className='label'>E-mail</label>
@@ -62,7 +56,7 @@ class PasswordForgetFormBase extends Component {
                                 onChange={ this.onChange }
                             />
                             <span className='icon is-small is-right'>
-                                <i className='fa fa-user'></i>
+                                <i className='fa fa-envelope-square'></i>
                             </span>
                         </div>
                     </div>

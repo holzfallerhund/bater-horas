@@ -3,6 +3,7 @@ import { withRouter } from 'react-router-dom'
 import { compose } from 'recompose'
 import styled from 'styled-components'
 
+import relogio from '../../assets/relogio.svg'
 import { SignUpLink } from './signup'
 import { PasswordForgetLink } from './passwordForget'
 import { withFirebase } from '../firebase'
@@ -70,12 +71,12 @@ class SignInFormBase extends Component {
                     <img
                         className='login-logo'
                         name='login-logo'
-                        src='assets/img/logo_r_resumme.png'
+                        src={ relogio }
                     />
                 </div>
                 <form onSubmit={ this.onSubmit }>
                     <div className='field'>
-                        <label className='label'>Username</label>
+                        <label className='label'>E-mail</label>
                         <div className='control has-icons-right'>
                             <input
                                 name='email'
@@ -85,12 +86,12 @@ class SignInFormBase extends Component {
                                 onChange={ this.onChange }
                             />
                             <span className='icon is-small is-right'>
-                                <i className='fa fa-user'></i>
+                                <i className='fa fa-envelope-square'></i>
                             </span>
                         </div>
                     </div>
                     <div className='field'>
-                        <label className='label'>Password</label>
+                        <label className='label'>Senha</label>
                         <div className='control has-icons-right'>
                             <input
                                 name='password'

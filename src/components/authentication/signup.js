@@ -65,7 +65,7 @@ class SignUpFormBase extends Component {
                                 onChange={ this.onChange }
                             />
                             <span className='icon is-small is-right'>
-                                <i className='fa fa-user'></i>
+                                <i className='fa fa-envelope-square'></i>
                             </span>
                         </div>
                     </div>
@@ -85,7 +85,7 @@ class SignUpFormBase extends Component {
                         </div>
                     </div>
                     <div className='field'>
-                        <label className='label'>Password</label>
+                        <label className='label'>Senha</label>
                         <div className='control has-icons-right'>
                             <input
                                 name='passwordOne'
