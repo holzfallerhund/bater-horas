@@ -8,13 +8,7 @@ import { PasswordForgetLink } from './passwordForget'
 import { withFirebase } from '../firebase'
 import * as ROUTES from '../../constants/routes'
 
-const SignInPage = () => (
-    <div>
-        <SignInForm />
-        <PasswordForgetLink />
-        <SignUpLink />
-    </div>
-)
+const SignInPage = () => <SignInForm />
 
 const INITIAL_STATE = {
     email: '',
@@ -121,6 +115,8 @@ class SignInFormBase extends Component {
                         </button>
                     </div>
                 </form>
+                <PasswordForgetLink />
+                <SignUpLink />
                 { error && (
                     <div className='has-text-centered'>
                         <a href='signup.html'>

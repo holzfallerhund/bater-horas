@@ -52,7 +52,7 @@ class PasswordForgetFormBase extends Component {
                 </div>
                 <form onSubmit={ this.onSubmit }>
                     <div className='field'>
-                        <label className='label'>Username</label>
+                        <label className='label'>E-mail</label>
                         <div className='control has-icons-right'>
                             <input
                                 name='email'

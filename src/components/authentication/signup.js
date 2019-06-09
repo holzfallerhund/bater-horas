@@ -14,12 +14,7 @@ const INITIAL_STATE = {
     error: null
 }
 
-const SignUpPage = () => (
-    <div>
-        <h1>SignUp</h1>
-        <SignUpForm />
-    </div>
-)
+const SignUpPage = () => <SignUpForm />
 
 class SignUpFormBase extends Component {
     state = { ...INITIAL_STATE }
