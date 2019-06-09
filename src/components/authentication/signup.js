@@ -4,7 +4,7 @@ import { compose } from 'recompose'
 
 import BackToSignPage from './backToSignPage'
 import { withFirebase } from '../firebase'
-import { StyledSection } from './signin'
+import LoginWrapper from './LoginWrapper'
 import * as ROUTES from '../../constants/routes'
 
 const INITIAL_STATE = {
@@ -46,7 +46,7 @@ class SignUpFormBase extends Component {
         const { username, email, passwordOne, passwordTwo, error } = this.state
 
         return (
-            <StyledSection className='section'>
+            <LoginWrapper>
                 <h3 className='title is-3'>Cadastre-se</h3>
                 <form onSubmit={ this.onSubmit }>
                     <div className='field'>
@@ -133,7 +133,7 @@ class SignUpFormBase extends Component {
                 <div className='has-text-centered'>
                     <BackToSignPage />
                 </div>
-            </StyledSection>
+            </LoginWrapper>
         )
     }
 }

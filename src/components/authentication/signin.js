@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
 import { compose } from 'recompose'
-import styled from 'styled-components'
 
 import relogio from '../../assets/relogio.svg'
 import { SignUpLink } from './signup'
 import { PasswordForgetLink } from './passwordForget'
 import { withFirebase } from '../firebase'
 import * as ROUTES from '../../constants/routes'
+import LoginWrapper from './LoginWrapper'
 
 import SignInToastWithMessageContext from '../toast/toastWithMessageContext'
 
@@ -18,24 +18,6 @@ const INITIAL_STATE = {
     password: '',
     error: null
 }
-
-export const StyledSection = styled.section`
-    .input {
-    border-radius: 50px;
-    }
-
-    .button {
-    margin-top: 20px;
-    margin-bottom: 20px;
-    min-width: 150px;
-    }
-
-    .login-logo {
-    margin: 0 auto;
-    margin-bottom: 50px;
-    max-height: 100px;
-    }
-`
 
 class SignInFormBase extends Component {
     constructor(props) {
@@ -68,7 +50,7 @@ class SignInFormBase extends Component {
         const { email, password, error } = this.state
 
         return (
-            <StyledSection className='section'>
+            <LoginWrapper>
                 <div className='has-text-centered'>
                     <img
                         className='login-logo'
@@ -125,7 +107,7 @@ class SignInFormBase extends Component {
                         error={ error }
                     />
                 ) }
-            </StyledSection>
+            </LoginWrapper>
         )
     }
 }

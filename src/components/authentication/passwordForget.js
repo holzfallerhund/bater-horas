@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import BackToSignPage from './backToSignPage'
 
 import { withFirebase } from '../firebase'
-import { StyledSection } from './signin'
+import LoginWrapper from './LoginWrapper'
 import * as ROUTES from '../../constants/routes'
 
 const PasswordForgetPage = () => <PasswordForgetForm />
@@ -44,7 +44,7 @@ class PasswordForgetFormBase extends Component {
         const { email, error } = this.state
 
         return (
-            <StyledSection className='section'>
+            <LoginWrapper>
                 <h3 className='title is-3'>Troque a sua senha</h3>
                 <form onSubmit={ this.onSubmit }>
                     <div className='field'>
@@ -83,7 +83,7 @@ class PasswordForgetFormBase extends Component {
                 <div className='has-text-centered'>
                     <BackToSignPage />
                 </div>
-            </StyledSection>
+            </LoginWrapper>
         )
     }
 }
