@@ -99,9 +99,10 @@ const SignUpForm = compose(
 )(SignUpFormBase)
 
 const SignUpLink = () => (
-    <p>
-        Don't have an account? <Link to={ ROUTES.SIGN_UP }>Sign Up</Link>
-    </p>
+
+    <div className='has-text-centered'>
+        <Link to={ ROUTES.SIGN_UP }>Cadastra-se</Link>
+    </div>
 )
 
 export default SignUpPage

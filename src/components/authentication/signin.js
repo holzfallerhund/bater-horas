@@ -10,7 +10,6 @@ import * as ROUTES from '../../constants/routes'
 
 const SignInPage = () => (
     <div>
-        <h1>SignIn</h1>
         <SignInForm />
         <PasswordForgetLink />
         <SignUpLink />
@@ -129,16 +128,6 @@ class SignInFormBase extends Component {
                         </a>
                     </div>
                 ) }
-                <div className='has-text-centered'>
-                    <a href='signup.html'>
-                        Cadastra-se
-                    </a>
-                </div>
-                <div className='has-text-centered'>
-                    <a href=''>
-                        Esqueceu a senha
-                    </a>
-                </div>
             </StyledSection>
         )
     }
