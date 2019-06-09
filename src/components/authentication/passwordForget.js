@@ -2,14 +2,10 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 
 import { withFirebase } from '../firebase'
+import { StyledSection } from './signin'
 import * as ROUTES from '../../constants/routes'
 
-const PasswordForgetPage = () => (
-    <>
-        <h1 className='title is-1'>Esqueceu a senha?</h1>
-        <PasswordForgetForm />
-    </>
-)
+const PasswordForgetPage = () => <PasswordForgetForm />
 
 const INITIAL_STATE = {
     email: '',
@@ -45,36 +41,50 @@ class PasswordForgetFormBase extends Component {
     render() {
         const { email, error } = this.state
 
-        const isInvalid = email === ''
-
         return (
-            <form onSubmit={ this.onSubmit }>
-                <div className='field'>
-                    <label className='label'>E-mail</label>
-                    <p className='control has-icons-left has-icons-right'>
-                        <input
-                            className={ `input ${error && 'is-danger'}` }
-                            type='email'
-                            name='email'
-                            placeholder='Seu e-mail'
-                            value={ this.state.email }
-                            onChange={ this.onChange }
-                        />
-                        <span className='icon is-small is-left'>
-                            <i className='fas fa-envelope' />
-                        </span>
-                    </p>
+            <StyledSection className='section'>
+                <div className='has-text-centered'>
+                    <img
+                        className='login-logo'
+                        name='login-logo'
+                        src='assets/img/logo_r_resumme.png'
+                    />
                 </div>
-                { error && <p className='help is-danger'>{ error.message }</p> }
-                <div className='control'>
-                    <button
-                        disabled={ isInvalid }
-                        type='submit'
-                        className='button is-link'>
-                        Resetar senha
-                    </button>
-                </div>
-            </form>
+                <form onSubmit={ this.onSubmit }>
+                    <div className='field'>
+                        <label className='label'>Username</label>
+                        <div className='control has-icons-right'>
+                            <input
+                                name='email'
+                                className='input'
+                                type='email'
+                                value={ email }
+                                onChange={ this.onChange }
+                            />
+                            <span className='icon is-small is-right'>
+                                <i className='fa fa-user'></i>
+                            </span>
+                        </div>
+                    </div>
+                    <div className='has-text-centered'>
+                        <button
+                            disabled={
+                                email === ''
+                            }
+                            type='submit'
+                            className='button is-vcentered is-primary is-outlined'>
+                            Enviar senha
+                        </button>
+                    </div>
+                </form>
+                { error && (
+                    <div className='has-text-centered'>
+                        <a href='signup.html'>
+                            { error }
+                        </a>
+                    </div>
+                ) }
+            </StyledSection>
         )
     }
 }
