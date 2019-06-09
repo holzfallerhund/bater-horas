@@ -46,13 +46,7 @@ class SignUpFormBase extends Component {
 
         return (
             <StyledSection className='section'>
-                <div className='has-text-centered'>
-                    <img
-                        className='login-logo'
-                        name='login-logo'
-                        src='assets/img/logo_r_resumme.png'
-                    />
-                </div>
+                <h3 className='title is-3'>Cadastre-se</h3>
                 <form onSubmit={ this.onSubmit }>
                     <div className='field'>
                         <label className='label'>E-mail</label>
@@ -135,6 +129,12 @@ class SignUpFormBase extends Component {
                         </a>
                     </div>
                 ) }
+                <div className='has-text-centered'>
+                    <button
+                        className='button is-vcentered is-primary'>
+                            Voltar
+                    </button>
+                </div>
             </StyledSection>
         )
     }

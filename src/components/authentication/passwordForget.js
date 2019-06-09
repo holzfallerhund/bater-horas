@@ -78,6 +78,12 @@ class PasswordForgetFormBase extends Component {
                         </a>
                     </div>
                 ) }
+                <div className='has-text-centered'>
+                    <button
+                        className='button is-vcentered is-primary'>
+                            Voltar
+                    </button>
+                </div>
             </StyledSection>
         )
     }
