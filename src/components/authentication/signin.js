@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
 import { compose } from 'recompose'
+import styled from 'styled-components'
 
 import { SignUpLink } from './signup'
 import { PasswordForgetLink } from './passwordForget'
@@ -21,6 +22,24 @@ const INITIAL_STATE = {
     password: '',
     error: null
 }
+
+const StyledSection = styled.section`
+    .input {
+    border-radius: 50px;
+    }
+
+    .button {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    min-width: 150px;
+    }
+
+    .login-logo {
+    margin: 0 auto;
+    margin-bottom: 50px;
+    max-height: 100px;
+    }
+`
 
 class SignInFormBase extends Component {
     constructor(props) {
@@ -52,29 +71,75 @@ class SignInFormBase extends Component {
     render() {
         const { email, password, error } = this.state
 
-        const isInvalid = password === '' || email === ''
-
         return (
-            <form onSubmit={ this.onSubmit }>
-                <input
-                    name='email'
-                    value={ email }
-                    onChange={ this.onChange }
-                    type='text'
-                    placeholder='Email Address'
-                />
-                <input
-                    name='password'
-                    value={ password }
-                    onChange={ this.onChange }
-                    type='password'
-                    placeholder='Password'
-                />
-                <button disabled={ isInvalid } type='submit'>
-                    Sign In
-                </button>
-                { error && <p>{ error.message }</p> }
-            </form>
+            <StyledSection className='section'>
+                <div className='has-text-centered'>
+                    <img
+                        className='login-logo'
+                        name='login-logo'
+                        src='assets/img/logo_r_resumme.png'
+                    />
+                </div>
+                <form onSubmit={ this.onSubmit }>
+                    <div className='field'>
+                        <label className='label'>Username</label>
+                        <div className='control has-icons-right'>
+                            <input
+                                name='email'
+                                className='input'
+                                type='email'
+                                value={ email }
+                                onChange={ this.onChange }
+                            />
+                            <span className='icon is-small is-right'>
+                                <i className='fa fa-user'></i>
+                            </span>
+                        </div>
+                    </div>
+                    <div className='field'>
+                        <label className='label'>Password</label>
+                        <div className='control has-icons-right'>
+                            <input
+                                name='password'
+                                className='input'
+                                type='password'
+                                value={ password }
+                                onChange={ this.onChange }
+                            />
+                            <span className='icon is-small is-right'>
+                                <i className='fa fa-key'></i>
+                            </span>
+                        </div>
+                    </div>
+                    <div className='has-text-centered'>
+                        <button
+                            disabled={
+                                email === '' || password === ''
+                            }
+                            type='submit'
+                            className='button is-vcentered is-primary is-outlined'>
+                            Login
+                        </button>
+                    </div>
+                </form>
+                { error && (
+                    <div className='has-text-centered'>
+                        <a href='signup.html'>
+                            { error }
+                        </a>
+                    </div>
+                ) }
+                <div className='has-text-centered'>
+                    <a href='signup.html'>
+                        Cadastra-se
+                    </a>
+                </div>
+                <div className='has-text-centered'>
+                    <a href=''>
+                        Esqueceu a senha
+                    </a>
+                </div>
+            </StyledSection>
         )
     }
 }
