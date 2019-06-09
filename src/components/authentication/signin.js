@@ -8,6 +8,8 @@ import { SignUpLink } from './signup'
 import { PasswordForgetLink } from './passwordForget'
 import { withFirebase } from '../firebase'
 import * as ROUTES from '../../constants/routes'
+import { toast, ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 const SignInPage = () => <SignInForm />
 
@@ -52,7 +54,7 @@ class SignInFormBase extends Component {
                 this.props.history.push(ROUTES.HOME)
             })
             .catch(error => {
-                this.setState({ error })
+                toast.error(error.message)
             })
 
         event.preventDefault()
@@ -63,7 +65,7 @@ class SignInFormBase extends Component {
     }
 
     render() {
-        const { email, password, error } = this.state
+        const { email, password } = this.state
 
         return (
             <StyledSection className='section'>
@@ -118,13 +120,7 @@ class SignInFormBase extends Component {
                 </form>
                 <PasswordForgetLink />
                 <SignUpLink />
-                { error && (
-                    <div className='has-text-centered'>
-                        <a href='signup.html'>
-                            { error }
-                        </a>
-                    </div>
-                ) }
+                <ToastContainer position={ toast.POSITION.BOTTOM_CENTER } />
             </StyledSection>
         )
     }
