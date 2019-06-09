@@ -22,7 +22,7 @@ const INITIAL_STATE = {
     error: null
 }
 
-const StyledSection = styled.section`
+export const StyledSection = styled.section`
     .input {
     border-radius: 50px;
     }

@@ -3,6 +3,7 @@ import { Link, withRouter } from 'react-router-dom'
 import { compose } from 'recompose'
 
 import { withFirebase } from '../firebase'
+import { StyledSection } from './signin'
 import * as ROUTES from '../../constants/routes'
 
 const INITIAL_STATE = {
@@ -48,47 +49,98 @@ class SignUpFormBase extends Component {
     render() {
         const { username, email, passwordOne, passwordTwo, error } = this.state
 
-        const isInvalid =
-            passwordOne !== passwordTwo ||
-            passwordOne === '' ||
-            email === '' ||
-            username === ''
-
         return (
-            <form onSubmit={ this.onSubmit }>
-                <input
-                    name='username'
-                    value={ username }
-                    onChange={ this.onChange }
-                    type='text'
-                    placeholder='Full Name'
-                />
-                <input
-                    name='email'
-                    value={ email }
-                    onChange={ this.onChange }
-                    type='text'
-                    placeholder='Email Address'
-                />
-                <input
-                    name='passwordOne'
-                    value={ passwordOne }
-                    onChange={ this.onChange }
-                    type='password'
-                    placeholder='Password'
-                />
-                <input
-                    name='passwordTwo'
-                    value={ passwordTwo }
-                    onChange={ this.onChange }
-                    type='password'
-                    placeholder='Confirm Password'
-                />
-                <button disabled={ isInvalid } type='submit'>
-                    Sign Up
-                </button>
-                { error && <p>{ error.message }</p> }
-            </form>
+            <StyledSection className='section'>
+                <div className='has-text-centered'>
+                    <img
+                        className='login-logo'
+                        name='login-logo'
+                        src='assets/img/logo_r_resumme.png'
+                    />
+                </div>
+                <form onSubmit={ this.onSubmit }>
+                    <div className='field'>
+                        <label className='label'>E-mail</label>
+                        <div className='control has-icons-right'>
+                            <input
+                                name='email'
+                                className='input'
+                                type='email'
+                                value={ email }
+                                onChange={ this.onChange }
+                            />
+                            <span className='icon is-small is-right'>
+                                <i className='fa fa-user'></i>
+                            </span>
+                        </div>
+                    </div>
+                    <div className='field'>
+                        <label className='label'>Usuário</label>
+                        <div className='control has-icons-right'>
+                            <input
+                                name='username'
+                                className='input'
+                                type='text'
+                                value={ username }
+                                onChange={ this.onChange }
+                            />
+                            <span className='icon is-small is-right'>
+                                <i className='fa fa-user'></i>
+                            </span>
+                        </div>
+                    </div>
+                    <div className='field'>
+                        <label className='label'>Password</label>
+                        <div className='control has-icons-right'>
+                            <input
+                                name='passwordOne'
+                                className='input'
+                                type='password'
+                                value={ passwordOne }
+                                onChange={ this.onChange }
+                            />
+                            <span className='icon is-small is-right'>
+                                <i className='fa fa-key'></i>
+                            </span>
+                        </div>
+                    </div>
+                    <div className='field'>
+                        <label className='label'>Confirme a senha</label>
+                        <div className='control has-icons-right'>
+                            <input
+                                name='passwordOne'
+                                className='input'
+                                type='password'
+                                value={ passwordTwo }
+                                onChange={ this.onChange }
+                            />
+                            <span className='icon is-small is-right'>
+                                <i className='fa fa-key'></i>
+                            </span>
+                        </div>
+                    </div>
+                    <div className='has-text-centered'>
+                        <button
+                            disabled={
+                                email === '' ||
+                                passwordOne === '' ||
+                                passwordOne === '' ||
+                                (passwordOne !== passwordTwo)
+                            }
+                            type='submit'
+                            className='button is-vcentered is-primary is-outlined'>
+                            Cadastra-se
+                        </button>
+                    </div>
+                </form>
+                { error && (
+                    <div className='has-text-centered'>
+                        <a href='signup.html'>
+                            { error }
+                        </a>
+                    </div>
+                ) }
+            </StyledSection>
         )
     }
 }
