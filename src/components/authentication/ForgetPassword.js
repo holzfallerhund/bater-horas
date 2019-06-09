@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 
-import BackToSignPage from './backToSignPage'
+import ButtonBackToSigin from './ButtonBackToSigin'
 
 import { withFirebase } from '../firebase'
 import LoginWrapper from './LoginWrapper'
@@ -14,7 +14,7 @@ const INITIAL_STATE = {
     error: null
 }
 
-class PasswordForgetFormBase extends Component {
+class PasswordForget extends Component {
     constructor(props) {
         super(props)
 
@@ -81,7 +81,7 @@ class PasswordForgetFormBase extends Component {
                     </div>
                 ) }
                 <div className='has-text-centered'>
-                    <BackToSignPage />
+                    <ButtonBackToSigin />
                 </div>
             </LoginWrapper>
         )
@@ -98,6 +98,6 @@ const PasswordForgetLink = () => (
 
 export default PasswordForgetPage
 
-const PasswordForgetForm = withFirebase(PasswordForgetFormBase)
+const PasswordForgetForm = withFirebase(PasswordForget)
 
 export { PasswordForgetForm, PasswordForgetLink }

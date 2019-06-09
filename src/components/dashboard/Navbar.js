@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { PureComponent } from 'react'
 import { withRouter } from 'react-router-dom'
-import SignOutButton from '../authentication/siginout'
+import ButtonSignOut from '../authentication/ButtonSiginOut'
 import UserName from './UserName'
 import * as ROUTES from '../../constants/routes'
 import logo from '../../assets/relogio-escrito.svg'
@@ -63,7 +63,7 @@ class NavBar extends PureComponent {
                     <div className='navbar-end'>
                         <div className='navbar-item'>
                             <div className='buttons'>
-                                <SignOutButton />
+                                <ButtonSignOut />
                             </div>
                         </div>
                     </div>

@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Link, withRouter } from 'react-router-dom'
 import { compose } from 'recompose'
 
-import BackToSignPage from './backToSignPage'
+import ButtonBackToSigin from './ButtonBackToSigin'
 import { withFirebase } from '../firebase'
 import LoginWrapper from './LoginWrapper'
 import * as ROUTES from '../../constants/routes'
@@ -131,7 +131,7 @@ class SignUpFormBase extends Component {
                     </div>
                 ) }
                 <div className='has-text-centered'>
-                    <BackToSignPage />
+                    <ButtonBackToSigin />
                 </div>
             </LoginWrapper>
         )

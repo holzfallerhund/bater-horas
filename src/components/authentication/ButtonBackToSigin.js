@@ -5,7 +5,7 @@ import {
     withRouter
 } from 'react-router-dom'
 
-class BackToSignPage extends Component {
+class ButtonBackToSigin extends Component {
     handleRoute = () => this.props.history.push('/signin')
 
     render() {
@@ -20,4 +20,4 @@ class BackToSignPage extends Component {
     }
 }
 
-export default withRouter(BackToSignPage)
+export default withRouter(ButtonBackToSigin)
