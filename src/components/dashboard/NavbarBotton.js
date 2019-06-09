@@ -69,14 +69,14 @@ export default class NavbarBotton extends PureComponent {
                 <div id='botton-navbar' className={ `navbar-menu ${isActive}` }>
                     <div className='navbar-start'>
                         <NavbarDropdownUp
-                            name='year'
-                            contents={ ['2021', '2020', '2019'] }
+                            dateNameType='year'
+                            dates={ ['2021', '2020', '2019'] }
                             selected={ this.state.values.year }
                             onSelectChose={ this.handleOnChoseValue }
                         />
                         <NavbarDropdownUp
-                            name='month'
-                            contents={ [
+                            dateNameType='month'
+                            dates={ [
                                 '01',
                                 '02',
                                 '03',

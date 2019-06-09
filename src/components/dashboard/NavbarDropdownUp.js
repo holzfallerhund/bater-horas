@@ -4,16 +4,16 @@ import React, { PureComponent } from 'react'
 export default class NavbarDropdownUp extends PureComponent {
     state = {
         isActive: false,
-        contents: []
+        dates: []
     }
 
-    handleClick = () => {
+    handleChangeDate = newDate => () => {
         this.setState({
             isActive: !this.state.isActive
         })
         this.props.onSelectChose(
-            this.props.name,
-            content
+            this.props.dateNameType,
+            newDate
         )
     }
 
@@ -34,15 +34,15 @@ export default class NavbarDropdownUp extends PureComponent {
                 <a
                     className='navbar-link'
                     onClick={ this.handleOnClick }>
-                    { this.props.selected || this.props.contents[0] }
+                    { this.props.selected || this.props.dates[0] }
                 </a>
                 <div className='navbar-dropdown'>
-                    { this.props.contents.map((content, key) => (
+                    { this.props.dates.map((newDate, key) => (
                         <a
                             key={ key }
                             className='navbar-item'
-                            onClick={ this.handleClick }>
-                            { content }
+                            onClick={ this.handleChangeDate(newDate) }>
+                            { newDate }
                         </a>
                     )) }
                 </div>
