@@ -70,7 +70,6 @@ module.exports = {
     },
     plugins: [
         new webpack.HashedModuleIdsPlugin(),
-        new ProgressBarPlugin(),
         new CompressionPlugin({
             cache: true,
             algorithm: 'gzip',
