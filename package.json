@@ -22,6 +22,7 @@
         "lint:fix": "eslint --fix 'src/**/*.{js,jsx}'",
         "release": "webpack --mode production",
         "test": "node scripts/test.js",
+        "cypress": "cypress open",
         "prettier": "prettier --write \"./**/*.{js,jsx,json}\""
     },
     "author": "osmarpetry",
@@ -43,6 +44,7 @@
         "babel-preset-react-app": "6.1.0",
         "compression-webpack-plugin": "2.0.0",
         "css-loader": "2.1.1",
+        "cypress": "3.3.1",
         "dotenv-webpack": "1.7.0",
         "eslint": "5.16.0",
         "eslint-config-prettier": "4.3.0",
@@ -57,11 +59,11 @@
         "image-webpack-loader": "5.0.0",
         "prettier": "1.17.1",
         "progress-bar-webpack-plugin": "^1.12.1",
-        "webpack-cli": "3.3.0",
-        "workbox-webpack-plugin": "4.3.1",
         "style-loader": "0.23.1",
         "url-loader": "1.1.2",
         "webpack": "4.29.6",
-        "webpack-dev-server": "3.2.1"
+        "webpack-cli": "3.3.0",
+        "webpack-dev-server": "3.2.1",
+        "workbox-webpack-plugin": "4.3.1"
     }
 }
