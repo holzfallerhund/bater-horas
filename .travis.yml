@@ -5,7 +5,7 @@ cache:
   directories:
   - node_modules
 before_install:
-  - npm i -g firebase-tools
+  - yarn global add firebase-tools
 after_success:
   - yarn release
   - firebase deploy -m "Travis deploy" --non-interactive --token $FIREBASE_TOKEN
