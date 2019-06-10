@@ -8,10 +8,9 @@ import * as ROUTES from './constants/routes'
 
 import Navigation from './components/dashboard/Navigation'
 import Home from './components/dashboard/Home'
-import SignUpPage from './components/authentication/signup'
-import SignInPage from './components/authentication/signin'
-import PasswordForgetPage from './components/authentication/passwordForget'
-import AccountPage from './components/account'
+import SignUp from './components/authentication/SignUp'
+import SignIn from './components/authentication/SignIn'
+import ForgetPassword from './components/authentication/ForgetPassword'
 
 class App extends Component {
     state = {
@@ -39,13 +38,12 @@ class App extends Component {
                 <Router>
                     <Navigation authUser={ this.state.authUser } />
                     <Route path={ ROUTES.HOME } exact component={ Home } />
-                    <Route path={ ROUTES.SIGN_UP } component={ SignUpPage } />
-                    <Route path={ ROUTES.SIGN_IN } component={ SignInPage } />
+                    <Route path={ ROUTES.SIGN_UP } component={ SignUp } />
+                    <Route path={ ROUTES.SIGN_IN } component={ SignIn } />
                     <Route
                         path={ ROUTES.PASSWORD_FORGET }
-                        component={ PasswordForgetPage }
+                        component={ ForgetPassword }
                     />
-                    <Route path={ ROUTES.ACCOUNT } component={ AccountPage } />
                 </Router>
             </AuthUserContext.Provider>
         )
