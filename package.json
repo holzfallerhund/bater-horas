@@ -21,7 +21,6 @@
         "lint": "eslint -c .eslintrc.json 'src/**/*.{js,jsx}'",
         "lint:fix": "eslint --fix 'src/**/*.{js,jsx}'",
         "release": "webpack --mode production",
-        "test": "node scripts/test.js",
         "prettier": "prettier --write \"./**/*.{js,jsx,json}\""
     },
     "author": "osmarpetry",
