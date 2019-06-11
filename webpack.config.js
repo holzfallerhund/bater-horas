@@ -28,6 +28,10 @@ module.exports = {
                 exclude: /node_modules/
             },
             {
+                test: /\.svg$/,
+                use: ['@svgr/webpack', 'url-loader']
+            },
+            {
                 test: /\.html$/,
                 use: [
                     {
@@ -37,12 +41,12 @@ module.exports = {
                 exclude: /node_modules/
             },
             {
-                test: /\.(gif|png|jpg|jpeg|svg)$/i,
+                test: /\.(gif|png|jpg|jpeg)$/i,
                 use: ['file-loader'],
                 exclude: /node_modules/
             },
             {
-                test: /\.(png|woff|woff2|eot|ttf|svg)$/,
+                test: /\.(png|woff|woff2|eot|ttf)$/,
                 loader: 'url-loader?limit=100000'
             },
             {

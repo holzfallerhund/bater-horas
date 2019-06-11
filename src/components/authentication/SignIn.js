@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
 import { compose } from 'recompose'
 
-import relogio from '../../assets/relogio.svg'
+import logo from '../../assets/relogio-escrito.svg'
 import { SignUpLink } from './SignUp'
 import { PasswordForgetLink } from './ForgetPassword'
 import { withFirebase } from '../firebase'
@@ -55,7 +55,7 @@ class SignInFormBase extends Component {
                     <img
                         className='login-logo'
                         name='login-logo'
-                        src={ relogio }
+                        src={ logo }
                     />
                 </div>
                 <form onSubmit={ this.onSubmit }>
