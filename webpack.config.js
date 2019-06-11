@@ -4,7 +4,6 @@ const HtmlWebPackPlugin = require('html-webpack-plugin')
 const CompressionPlugin = require('compression-webpack-plugin')
 const Dotenv = require('dotenv-webpack')
 const { GenerateSW } = require('workbox-webpack-plugin')
-const ProgressBarPlugin = require('progress-bar-webpack-plugin')
 
 module.exports = {
     entry: ['./src/index.js'],
