@@ -4,6 +4,7 @@ const HtmlWebPackPlugin = require('html-webpack-plugin')
 const CompressionPlugin = require('compression-webpack-plugin')
 const Dotenv = require('dotenv-webpack')
 const { GenerateSW } = require('workbox-webpack-plugin')
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 
 module.exports = {
     entry: ['./src/index.js'],
@@ -50,6 +51,14 @@ module.exports = {
                 loader: 'url-loader?limit=100000'
             },
             {
+                test: /\.sass$/,
+                use: [
+                    'style-loader', // creates style nodes from JS strings
+                    'css-loader', // translates CSS into CommonJS
+                    'sass-loader' // compiles Sass to CSS, using Node Sass by default
+                ]
+            },
+            {
                 test: /\.css$/,
                 use: [
                     {
@@ -72,6 +81,7 @@ module.exports = {
         port: 8080
     },
     plugins: [
+        new BundleAnalyzerPlugin(),
         new webpack.HashedModuleIdsPlugin(),
         new CompressionPlugin({
             cache: true,
