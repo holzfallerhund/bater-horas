@@ -2,6 +2,9 @@ import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
 import { compose } from 'recompose'
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faEnvelopeSquare, faKey } from '@fortawesome/free-solid-svg-icons'
+
 import logo from '../../assets/relogio-escrito.svg'
 import { SignUpLink } from './SignUp'
 import { PasswordForgetLink } from './ForgetPassword'
@@ -70,7 +73,7 @@ class SignInFormBase extends Component {
                                 onChange={ this.onChange }
                             />
                             <span className='icon is-small is-right'>
-                                <i className='fa fa-envelope-square'></i>
+                                <FontAwesomeIcon icon={ faEnvelopeSquare } />
                             </span>
                         </div>
                     </div>
@@ -85,7 +88,7 @@ class SignInFormBase extends Component {
                                 onChange={ this.onChange }
                             />
                             <span className='icon is-small is-right'>
-                                <i className='fa fa-key'></i>
+                                <FontAwesomeIcon icon={ faKey } />
                             </span>
                         </div>
                     </div>

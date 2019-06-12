@@ -3,7 +3,6 @@ import { Route, BrowserRouter as Router } from 'react-router-dom'
 import { withFirebase } from './components/firebase'
 import { AuthUserContext } from '@horas/components/session'
 import 'bulma/css/bulma.min.css'
-import '@fortawesome/fontawesome-free/css/all.min.css'
 import * as ROUTES from './constants/routes'
 
 import Navigation from './components/dashboard/Navigation'

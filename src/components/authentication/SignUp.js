@@ -2,6 +2,9 @@ import React, { Component } from 'react'
 import { Link, withRouter } from 'react-router-dom'
 import { compose } from 'recompose'
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faEnvelopeSquare, faKey, faUser } from '@fortawesome/free-solid-svg-icons'
+
 import ButtonBackToSigin from './ButtonBackToSigin'
 import { withFirebase } from '../firebase'
 import LoginWrapper from './LoginWrapper'
@@ -60,7 +63,7 @@ class SignUpFormBase extends Component {
                                 onChange={ this.onChange }
                             />
                             <span className='icon is-small is-right'>
-                                <i className='fa fa-envelope-square'></i>
+                                <FontAwesomeIcon icon={ faEnvelopeSquare } />
                             </span>
                         </div>
                     </div>
@@ -75,7 +78,7 @@ class SignUpFormBase extends Component {
                                 onChange={ this.onChange }
                             />
                             <span className='icon is-small is-right'>
-                                <i className='fa fa-user'></i>
+                                <FontAwesomeIcon icon={ faUser } />
                             </span>
                         </div>
                     </div>
@@ -90,7 +93,7 @@ class SignUpFormBase extends Component {
                                 onChange={ this.onChange }
                             />
                             <span className='icon is-small is-right'>
-                                <i className='fa fa-key'></i>
+                                <FontAwesomeIcon icon={ faKey } />
                             </span>
                         </div>
                     </div>
@@ -105,7 +108,7 @@ class SignUpFormBase extends Component {
                                 onChange={ this.onChange }
                             />
                             <span className='icon is-small is-right'>
-                                <i className='fa fa-key'></i>
+                                <FontAwesomeIcon icon={ faKey } />
                             </span>
                         </div>
                     </div>

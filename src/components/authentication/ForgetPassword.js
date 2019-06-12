@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 
-import ButtonBackToSigin from './ButtonBackToSigin'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faEnvelopeSquare } from '@fortawesome/free-solid-svg-icons'
 
+import ButtonBackToSigin from './ButtonBackToSigin'
 import { withFirebase } from '../firebase'
 import LoginWrapper from './LoginWrapper'
 import * as ROUTES from '../../constants/routes'
@@ -58,7 +60,7 @@ class PasswordForget extends Component {
                                 onChange={ this.onChange }
                             />
                             <span className='icon is-small is-right'>
-                                <i className='fa fa-envelope-square'></i>
+                                <FontAwesomeIcon icon={ faEnvelopeSquare } />
                             </span>
                         </div>
                     </div>
