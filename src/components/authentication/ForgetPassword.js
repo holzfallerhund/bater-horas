@@ -50,9 +50,10 @@ class PasswordForget extends Component {
                 <h3 className='title is-3'>Troque a sua senha</h3>
                 <form onSubmit={ this.onSubmit }>
                     <div className='field'>
-                        <label className='label'>E-mail</label>
+                        <label className='label' htmlFor='email'>E-mail</label>
                         <div className='control has-icons-right'>
                             <input
+                                id='email'
                                 name='email'
                                 className='input'
                                 type='email'

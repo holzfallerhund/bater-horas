@@ -5,7 +5,7 @@ import { compose } from 'recompose'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEnvelopeSquare, faKey } from '@fortawesome/free-solid-svg-icons'
 
-import logo from '../../assets/relogio-escrito.svg'
+import logo from '../../assets/relogio.svg'
 import { SignUpLink } from './SignUp'
 import { PasswordForgetLink } from './ForgetPassword'
 import { withFirebase } from '../firebase'
@@ -58,14 +58,17 @@ class SignInFormBase extends Component {
                     <img
                         className='login-logo'
                         name='login-logo'
+                        alt='Logo do aplicativo'
                         src={ logo }
                     />
+                    <h1 className='title is-2'>Acesse o sistema</h1>
                 </div>
                 <form onSubmit={ this.onSubmit }>
                     <div className='field'>
-                        <label className='label'>E-mail</label>
+                        <label className='label' htmlFor='email'>E-mail</label>
                         <div className='control has-icons-right'>
                             <input
+                                id='email'
                                 name='email'
                                 className='input'
                                 type='email'
@@ -78,9 +81,10 @@ class SignInFormBase extends Component {
                         </div>
                     </div>
                     <div className='field'>
-                        <label className='label'>Senha</label>
+                        <label className='label' htmlFor='password'>Senha</label>
                         <div className='control has-icons-right'>
                             <input
+                                id='password'
                                 name='password'
                                 className='input'
                                 type='password'
