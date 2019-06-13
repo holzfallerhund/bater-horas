@@ -2,7 +2,7 @@
 import React, { PureComponent } from 'react'
 import { assoc, evolve } from 'ramda'
 import NavbarDropdownUp from './NavbarDropdownUp'
-import { format } from 'date-fns'
+import format from 'date-fns/format'
 
 export default class NavbarBotton extends PureComponent {
     state = {

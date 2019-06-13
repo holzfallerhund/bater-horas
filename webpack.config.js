@@ -5,6 +5,7 @@ const CompressionPlugin = require('compression-webpack-plugin')
 const Dotenv = require('dotenv-webpack')
 const { GenerateSW } = require('workbox-webpack-plugin')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 
 module.exports = {
     entry: ['./src/index.js'],
@@ -108,6 +109,7 @@ module.exports = {
         })
     ],
     optimization: {
+        minimizer: [new UglifyJsPlugin()],
         runtimeChunk: 'single',
         splitChunks: {
             chunks: 'all',
