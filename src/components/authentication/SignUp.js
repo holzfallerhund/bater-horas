@@ -2,6 +2,9 @@ import React, { Component } from 'react'
 import { Link, withRouter } from 'react-router-dom'
 import { compose } from 'recompose'
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faEnvelopeSquare, faKey, faUser } from '@fortawesome/free-solid-svg-icons'
+
 import ButtonBackToSigin from './ButtonBackToSigin'
 import { withFirebase } from '../firebase'
 import LoginWrapper from './LoginWrapper'
@@ -50,9 +53,10 @@ class SignUpFormBase extends Component {
                 <h3 className='title is-3'>Cadastre-se</h3>
                 <form onSubmit={ this.onSubmit }>
                     <div className='field'>
-                        <label className='label'>E-mail</label>
+                        <label className='label' htmlFor='email'>E-mail</label>
                         <div className='control has-icons-right'>
                             <input
+                                id='email'
                                 name='email'
                                 className='input'
                                 type='email'
@@ -60,14 +64,15 @@ class SignUpFormBase extends Component {
                                 onChange={ this.onChange }
                             />
                             <span className='icon is-small is-right'>
-                                <i className='fa fa-envelope-square'></i>
+                                <FontAwesomeIcon icon={ faEnvelopeSquare } />
                             </span>
                         </div>
                     </div>
                     <div className='field'>
-                        <label className='label'>Usuário</label>
+                        <label className='label' htmlFor='username'>Usuário</label>
                         <div className='control has-icons-right'>
                             <input
+                                id='username'
                                 name='username'
                                 className='input'
                                 type='text'
@@ -75,14 +80,15 @@ class SignUpFormBase extends Component {
                                 onChange={ this.onChange }
                             />
                             <span className='icon is-small is-right'>
-                                <i className='fa fa-user'></i>
+                                <FontAwesomeIcon icon={ faUser } />
                             </span>
                         </div>
                     </div>
                     <div className='field'>
-                        <label className='label'>Senha</label>
+                        <label className='label' htmlFor='passwordOne'>Senha</label>
                         <div className='control has-icons-right'>
                             <input
+                                id='passwordOne'
                                 name='passwordOne'
                                 className='input'
                                 type='password'
@@ -90,22 +96,23 @@ class SignUpFormBase extends Component {
                                 onChange={ this.onChange }
                             />
                             <span className='icon is-small is-right'>
-                                <i className='fa fa-key'></i>
+                                <FontAwesomeIcon icon={ faKey } />
                             </span>
                         </div>
                     </div>
                     <div className='field'>
-                        <label className='label'>Confirme a senha</label>
+                        <label className='label' htmlFor='passwordTwo'>Confirme a senha</label>
                         <div className='control has-icons-right'>
                             <input
-                                name='passwordOne'
+                                id='passwordTwo'
+                                name='passwordTwo'
                                 className='input'
                                 type='password'
                                 value={ passwordTwo }
                                 onChange={ this.onChange }
                             />
                             <span className='icon is-small is-right'>
-                                <i className='fa fa-key'></i>
+                                <FontAwesomeIcon icon={ faKey } />
                             </span>
                         </div>
                     </div>

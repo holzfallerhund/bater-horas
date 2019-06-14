@@ -13,7 +13,7 @@ import {
     subtract,
     sum
 } from 'ramda'
-import { format } from 'date-fns'
+import format from 'date-fns/format'
 import { compose } from 'recompose'
 import { withFirebase } from '../firebase'
 
