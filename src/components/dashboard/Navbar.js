@@ -37,7 +37,7 @@ class NavBar extends PureComponent {
                             src={ logo }
                             width='112'
                             height='28'
-                            alt='Bater horas logo'
+                            alt='Logo do aplicativo'
                         />
                     </a>
                     <a

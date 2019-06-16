@@ -4,7 +4,8 @@ const HtmlWebPackPlugin = require('html-webpack-plugin')
 const CompressionPlugin = require('compression-webpack-plugin')
 const Dotenv = require('dotenv-webpack')
 const { GenerateSW } = require('workbox-webpack-plugin')
-const ProgressBarPlugin = require('progress-bar-webpack-plugin')
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+const WebpackPwaManifest = require('webpack-pwa-manifest')
 
 module.exports = {
     entry: ['./src/index.js'],
@@ -29,6 +30,10 @@ module.exports = {
                 exclude: /node_modules/
             },
             {
+                test: /\.svg$/,
+                use: ['@svgr/webpack', 'url-loader']
+            },
+            {
                 test: /\.html$/,
                 use: [
                     {
@@ -38,13 +43,21 @@ module.exports = {
                 exclude: /node_modules/
             },
             {
-                test: /\.(gif|png|jpg|jpeg|svg)$/i,
+                test: /\.(gif|png|jpg|jpeg)$/i,
                 use: ['file-loader'],
                 exclude: /node_modules/
             },
             {
-                test: /\.(png|woff|woff2|eot|ttf|svg)$/,
+                test: /\.(png|woff|woff2|eot|ttf)$/,
                 loader: 'url-loader?limit=100000'
+            },
+            {
+                test: /\.sass$/,
+                use: [
+                    'style-loader', // creates style nodes from JS strings
+                    'css-loader', // translates CSS into CommonJS
+                    'sass-loader' // compiles Sass to CSS, using Node Sass by default
+                ]
             },
             {
                 test: /\.css$/,
@@ -69,8 +82,24 @@ module.exports = {
         port: 8080
     },
     plugins: [
+        new WebpackPwaManifest({
+            'filename': 'manifest.json',
+            'short_name': 'Bater Horas',
+            'name': 'Bater Horas',
+            'description': 'Faça seu contre de horas',
+            'theme_color': '#2196f3',
+            'background_color': '#2196f3',
+            'display': 'standalone',
+            'scope': '/',
+            'start_url': '/',
+            'icons': [
+                {
+                    'src': path.resolve('public/images/icons/icon-512x512.png'),
+                    'sizes': [96, 128, 192, 256, 384, 512]
+                }
+            ]
+        }),
         new webpack.HashedModuleIdsPlugin(),
-        new ProgressBarPlugin(),
         new CompressionPlugin({
             cache: true,
             algorithm: 'gzip',
@@ -96,6 +125,7 @@ module.exports = {
         })
     ],
     optimization: {
+        minimizer: [new UglifyJsPlugin()],
         runtimeChunk: 'single',
         splitChunks: {
             chunks: 'all',

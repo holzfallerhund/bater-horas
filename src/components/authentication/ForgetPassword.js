@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 
-import ButtonBackToSigin from './ButtonBackToSigin'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faEnvelopeSquare } from '@fortawesome/free-solid-svg-icons'
 
+import ButtonBackToSigin from './ButtonBackToSigin'
 import { withFirebase } from '../firebase'
 import LoginWrapper from './LoginWrapper'
 import * as ROUTES from '../../constants/routes'
@@ -48,9 +50,10 @@ class PasswordForget extends Component {
                 <h3 className='title is-3'>Troque a sua senha</h3>
                 <form onSubmit={ this.onSubmit }>
                     <div className='field'>
-                        <label className='label'>E-mail</label>
+                        <label className='label' htmlFor='email'>E-mail</label>
                         <div className='control has-icons-right'>
                             <input
+                                id='email'
                                 name='email'
                                 className='input'
                                 type='email'
@@ -58,7 +61,7 @@ class PasswordForget extends Component {
                                 onChange={ this.onChange }
                             />
                             <span className='icon is-small is-right'>
-                                <i className='fa fa-envelope-square'></i>
+                                <FontAwesomeIcon icon={ faEnvelopeSquare } />
                             </span>
                         </div>
                     </div>
