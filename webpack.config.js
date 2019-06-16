@@ -4,8 +4,8 @@ const HtmlWebPackPlugin = require('html-webpack-plugin')
 const CompressionPlugin = require('compression-webpack-plugin')
 const Dotenv = require('dotenv-webpack')
 const { GenerateSW } = require('workbox-webpack-plugin')
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+const WebpackPwaManifest = require('webpack-pwa-manifest')
 
 module.exports = {
     entry: ['./src/index.js'],
@@ -82,7 +82,23 @@ module.exports = {
         port: 8080
     },
     plugins: [
-        new BundleAnalyzerPlugin(),
+        new WebpackPwaManifest({
+            'filename': 'manifest.json',
+            'short_name': 'Bater Horas',
+            'name': 'Bater Horas',
+            'description': 'Faça seu contre de horas',
+            'theme_color': '#2196f3',
+            'background_color': '#2196f3',
+            'display': 'standalone',
+            'scope': '/',
+            'start_url': '/',
+            'icons': [
+                {
+                    'src': path.resolve('public/images/icons/icon-512x512.png'),
+                    'sizes': [96, 128, 192, 256, 384, 512]
+                }
+            ]
+        }),
         new webpack.HashedModuleIdsPlugin(),
         new CompressionPlugin({
             cache: true,
