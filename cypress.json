@@ -8,5 +8,7 @@
     "requestTimeout": 30000,
     "supportFile": "cypress/support/index.js",
     "chromeWebSecurity": false,
-    "ignoreTestFiles": ["/**/*.step.js"]
+    "ignoreTestFiles": ["/**/*.step.js"],
+    "viewportWidth": 1920,
+    "viewportHeight": 1080
 }

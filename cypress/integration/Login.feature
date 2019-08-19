@@ -21,14 +21,13 @@ Feature: Login
         And I click in 'send-password'
         Then I should see 'email' empty
 
-    # TODO: Use a admin SDK to delete user before try to recreate to test
-    #Scenario: I create new user and should be logged in
-    #    When I click in link 'sign-up'
-    #    And I type 'username@email.com' in 'email'
-    #    And I type 'username' in 'username'
-    #    And I type '123456' in 'passwordOne'
-    #    And I type '123456' in 'passwordTwo'
-    #    And I click in 'sign-up'
-    #    And I wait '3' seconds
-    #    And I click in link 'logo'
-    #    Then I should see 'Horário'
+    Scenario: I create new user and should be logged in
+        When I click in link 'sign-up'
+        And I type 'username@email.com' in 'email'
+        And I type 'username' in 'username'
+        And I type '123456' in 'passwordOne'
+        And I type '123456' in 'passwordTwo'
+        And I click in 'sign-up'
+        And I wait '3' seconds
+        And I click in link 'logo'
+        Then I should see 'Horário'

@@ -19,3 +19,4 @@ Then('I should see the button {string} disabled', button => {
 Then('I should see {string} empty', input => {
     cy.get(`input[name=${input}]`).should('be.empty')
 })
+
