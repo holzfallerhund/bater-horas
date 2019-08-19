@@ -19,6 +19,7 @@
     },
     "scripts": {
         "cypress": "cypress open",
+        "test": "mocha spec/**/*.spec.js",
         "start": "webpack-dev-server --color --mode development",
         "start:prod": "webpack-dev-server --progress --color --mode production",
         "lint": "eslint -c .eslintrc.json 'src/**/*.{js,jsx}'",
@@ -45,6 +46,7 @@
         "babel-plugin-dynamic-import-webpack": "1.1.0",
         "babel-plugin-transform-class-properties": "6.24.1",
         "babel-preset-react-app": "6.1.0",
+        "chai": "4.2.0",
         "compression-webpack-plugin": "2.0.0",
         "css-loader": "2.1.1",
         "cypress": "3.3.1",
@@ -60,6 +62,7 @@
         "html-loader": "0.5.5",
         "html-webpack-plugin": "3.2.0",
         "image-webpack-loader": "5.0.0",
+        "mocha": "6.1.4",
         "node-sass": "4.12.0",
         "prettier": "1.17.1",
         "sass-loader": "7.1.0",
