@@ -102,6 +102,7 @@ class SignInFormBase extends Component {
                                 email === '' || password === ''
                             }
                             type='submit'
+                            name='login'
                             className='button is-vcentered is-primary is-outlined'>
                             Login
                         </button>

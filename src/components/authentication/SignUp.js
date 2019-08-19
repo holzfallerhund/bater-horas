@@ -101,7 +101,11 @@ class SignUpFormBase extends Component {
                         </div>
                     </div>
                     <div className='field'>
-                        <label className='label' htmlFor='passwordTwo'>Confirme a senha</label>
+                        <label
+                            className='label'
+                            htmlFor='passwordTwo'>
+                                Confirme a senha
+                        </label>
                         <div className='control has-icons-right'>
                             <input
                                 id='passwordTwo'
@@ -125,6 +129,7 @@ class SignUpFormBase extends Component {
                                 (passwordOne !== passwordTwo)
                             }
                             type='submit'
+                            name='sign-up'
                             className='button is-vcentered is-primary is-outlined'>
                             Cadastra-se
                         </button>
@@ -153,7 +158,7 @@ const SignUpForm = compose(
 const SignUpLink = () => (
 
     <div className='has-text-centered'>
-        <Link to={ ROUTES.SIGN_UP }>Cadastra-se</Link>
+        <Link to={ ROUTES.SIGN_UP } name='sign-up'>Cadastra-se</Link>
     </div>
 )
 

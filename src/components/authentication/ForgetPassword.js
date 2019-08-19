@@ -71,6 +71,7 @@ class PasswordForget extends Component {
                                 email === ''
                             }
                             type='submit'
+                            name='send-password'
                             className='button is-vcentered is-primary is-outlined'>
                             Enviar senha
                         </button>
@@ -93,7 +94,7 @@ class PasswordForget extends Component {
 
 const PasswordForgetLink = () => (
     <div className='has-text-centered'>
-        <Link to={ ROUTES.PASSWORD_FORGET }>
+        <Link to={ ROUTES.PASSWORD_FORGET } name='forget-password'>
             Esqueceu a senha
         </Link>
     </div>

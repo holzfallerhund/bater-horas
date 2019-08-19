@@ -32,6 +32,7 @@ class NavBar extends PureComponent {
                 <div className='navbar-brand'>
                     <a
                         className='navbar-item'
+                        name='logo'
                         onClick={ this.handleGoHome }>
                         <img
                             src={ logo }
