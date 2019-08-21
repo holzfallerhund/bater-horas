@@ -1,31 +1,15 @@
 import React, { Component } from 'react'
-import { withAuthorization } from '../session'
-import Table from '../table/Table'
-import NavbarBotton from './NavbarBotton'
-import {
-    apply,
-    dropLast,
-    flip,
-    map,
-    pipe,
-    pluck,
-    splitEvery,
-    subtract,
-    sum
-} from 'ramda'
+
 import format from 'date-fns/format'
 import { compose } from 'recompose'
+
+import { handPointHours } from '../../utils/handpoint'
+
+import { withAuthorization } from '../session'
 import { withFirebase } from '../firebase'
 
-const msToHours = ms => ms / 1000 / 60 / 60
-
-const date = pipe(
-    pluck('date'),
-    splitEvery(2),
-    map(apply(flip(subtract))),
-    sum,
-    msToHours
-)
+import Table from '../table/Table'
+import NavbarBotton from './NavbarBotton'
 
 export class Home extends Component {
     state = {
@@ -65,11 +49,7 @@ export class Home extends Component {
         )
     }
 
-    handlePointedHours = () => {
-        return this.state.appointments.length % 2 === 0
-            ? date(this.state.appointments)
-            : date(dropLast(1, this.state.appointments))
-    }
+    handlePointedHours = () => handPointHours(this.state.appointments)
 
     getDate() {
         this.props.firebase
