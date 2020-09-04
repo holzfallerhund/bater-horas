@@ -70,7 +70,7 @@
         "image-webpack-loader": "5.0.0",
         "jsdom": "15.1.1",
         "mocha": "6.1.4",
-        "node-sass": "4.12.0",
+        "node-sass": "4.13.1",
         "prettier": "1.17.1",
         "sass-loader": "7.1.0",
         "style-loader": "0.23.1",
