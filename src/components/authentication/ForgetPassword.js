@@ -45,17 +45,19 @@ class PasswordForget extends Component {
         return (
             <LoginWrapper>
                 <h3 className='title is-3'>Troque a sua senha</h3>
-                <form onSubmit={ this.onSubmit }>
+                <form onSubmit={this.onSubmit}>
                     <div className='field'>
-                        <label className='label' htmlFor='email'>E-mail</label>
+                        <label className='label' htmlFor='email'>
+                            E-mail
+                        </label>
                         <div className='control has-icons-right'>
                             <input
                                 id='email'
                                 name='email'
                                 className='input'
                                 type='email'
-                                value={ email }
-                                onChange={ this.onChange }
+                                value={email}
+                                onChange={this.onChange}
                             />
                             <span className='icon is-small is-right'>
                                 Quadrado
@@ -64,9 +66,7 @@ class PasswordForget extends Component {
                     </div>
                     <div className='has-text-centered'>
                         <button
-                            disabled={
-                                email === ''
-                            }
+                            disabled={email === ''}
                             type='submit'
                             name='send-password'
                             className='button is-vcentered is-primary is-outlined'>
@@ -74,13 +74,11 @@ class PasswordForget extends Component {
                         </button>
                     </div>
                 </form>
-                { error && (
+                {error && (
                     <div className='has-text-centered'>
-                        <a href='signup.html'>
-                            { error }
-                        </a>
+                        <a href='signup.html'>{error}</a>
                     </div>
-                ) }
+                )}
                 <div className='has-text-centered'>
                     <ButtonBackToSigin />
                 </div>
@@ -91,7 +89,7 @@ class PasswordForget extends Component {
 
 const PasswordForgetLink = () => (
     <div className='has-text-centered'>
-        <Link to={ ROUTES.PASSWORD_FORGET } name='forget-password'>
+        <Link to={ROUTES.PASSWORD_FORGET} name='forget-password'>
             Esqueceu a senha
         </Link>
     </div>

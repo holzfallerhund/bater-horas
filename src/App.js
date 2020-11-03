@@ -32,15 +32,15 @@ class App extends Component {
 
     render() {
         return (
-            <AuthUserContext.Provider value={ this.state.authUser }>
+            <AuthUserContext.Provider value={this.state.authUser}>
                 <Router>
-                    <Navigation authUser={ this.state.authUser } />
-                    <Route path={ ROUTES.HOME } exact component={ Home } />
-                    <Route path={ ROUTES.SIGN_UP } component={ SignUp } />
-                    <Route path={ ROUTES.SIGN_IN } component={ SignIn } />
+                    <Navigation authUser={this.state.authUser} />
+                    <Route path={ROUTES.HOME} exact component={Home} />
+                    <Route path={ROUTES.SIGN_UP} component={SignUp} />
+                    <Route path={ROUTES.SIGN_IN} component={SignIn} />
                     <Route
-                        path={ ROUTES.PASSWORD_FORGET }
-                        component={ ForgetPassword }
+                        path={ROUTES.PASSWORD_FORGET}
+                        component={ForgetPassword}
                     />
                 </Router>
             </AuthUserContext.Provider>

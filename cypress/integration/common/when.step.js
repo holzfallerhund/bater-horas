@@ -5,9 +5,7 @@ When('I click on href {string}', href => {
 })
 
 When('I click on first element a', () => {
-    cy.get('a')
-        .first()
-        .click()
+    cy.get('a').first().click()
 })
 
 When('I type {string} in {string}', (value, input) => {

@@ -20,12 +20,9 @@ const hoursSumBtwnDates = pipe(
     msToHours
 )
 
-const dropLastDate = dates => hoursSumBtwnDates(
-    (dropLast(1))(dates)
-)
+const dropLastDate = dates => hoursSumBtwnDates(dropLast(1)(dates))
 
-export const handPointHours = appointments => (
+export const handPointHours = appointments =>
     appointments.length % 2 === 0
         ? hoursSumBtwnDates(appointments)
         : dropLastDate(appointments)
-)

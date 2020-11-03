@@ -83,15 +83,15 @@ export class Home extends Component {
                 <section className='section'>
                     <div className='container'>
                         <Table
-                            appointments={ appointments }
-                            pointedHours={ this.handlePointedHours() }
-                            handleTextUpdate={ this.handleTextUpdate }
+                            appointments={appointments}
+                            pointedHours={this.handlePointedHours()}
+                            handleTextUpdate={this.handleTextUpdate}
                         />
                     </div>
                 </section>
                 <NavbarBotton
-                    changeDate={ this.handleChangeDate }
-                    handPoint={ this.handPoint }
+                    changeDate={this.handleChangeDate}
+                    handPoint={this.handPoint}
                 />
             </>
         )
@@ -100,7 +100,4 @@ export class Home extends Component {
 
 const condition = authUser => !!authUser
 
-export default compose(
-    withAuthorization(condition),
-    withFirebase
-)(Home)
+export default compose(withAuthorization(condition), withFirebase)(Home)

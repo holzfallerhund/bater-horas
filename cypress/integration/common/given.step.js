@@ -8,8 +8,9 @@ Given('I reload page', () => {
     cy.reload()
 })
 
-Given('I\'m in {string}-{string}-{string} {string}:{string}',
+Given(
+    "I'm in {string}-{string}-{string} {string}:{string}",
     (year, month, day, hour, minute) => {
         cy.clock(Date.UTC(year, month, day, hour, minute), ['Date'])
-    })
-
+    }
+)

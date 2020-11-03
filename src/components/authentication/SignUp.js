@@ -48,17 +48,19 @@ class SignUpFormBase extends Component {
         return (
             <LoginWrapper>
                 <h3 className='title is-3'>Cadastre-se</h3>
-                <form onSubmit={ this.onSubmit }>
+                <form onSubmit={this.onSubmit}>
                     <div className='field'>
-                        <label className='label' htmlFor='email'>E-mail</label>
+                        <label className='label' htmlFor='email'>
+                            E-mail
+                        </label>
                         <div className='control has-icons-right'>
                             <input
                                 id='email'
                                 name='email'
                                 className='input'
                                 type='email'
-                                value={ email }
-                                onChange={ this.onChange }
+                                value={email}
+                                onChange={this.onChange}
                             />
                             <span className='icon is-small is-right'>
                                 envelope
@@ -66,31 +68,33 @@ class SignUpFormBase extends Component {
                         </div>
                     </div>
                     <div className='field'>
-                        <label className='label' htmlFor='username'>Usuário</label>
+                        <label className='label' htmlFor='username'>
+                            Usuário
+                        </label>
                         <div className='control has-icons-right'>
                             <input
                                 id='username'
                                 name='username'
                                 className='input'
                                 type='text'
-                                value={ username }
-                                onChange={ this.onChange }
+                                value={username}
+                                onChange={this.onChange}
                             />
-                            <span className='icon is-small is-right'>
-                                user
-                            </span>
+                            <span className='icon is-small is-right'>user</span>
                         </div>
                     </div>
                     <div className='field'>
-                        <label className='label' htmlFor='passwordOne'>Senha</label>
+                        <label className='label' htmlFor='passwordOne'>
+                            Senha
+                        </label>
                         <div className='control has-icons-right'>
                             <input
                                 id='passwordOne'
                                 name='passwordOne'
                                 className='input'
                                 type='password'
-                                value={ passwordOne }
-                                onChange={ this.onChange }
+                                value={passwordOne}
+                                onChange={this.onChange}
                             />
                             <span className='icon is-small is-right'>
                                 chave
@@ -98,10 +102,8 @@ class SignUpFormBase extends Component {
                         </div>
                     </div>
                     <div className='field'>
-                        <label
-                            className='label'
-                            htmlFor='passwordTwo'>
-                                Confirme a senha
+                        <label className='label' htmlFor='passwordTwo'>
+                            Confirme a senha
                         </label>
                         <div className='control has-icons-right'>
                             <input
@@ -109,8 +111,8 @@ class SignUpFormBase extends Component {
                                 name='passwordTwo'
                                 className='input'
                                 type='password'
-                                value={ passwordTwo }
-                                onChange={ this.onChange }
+                                value={passwordTwo}
+                                onChange={this.onChange}
                             />
                             <span className='icon is-small is-right'>
                                 chave
@@ -123,7 +125,7 @@ class SignUpFormBase extends Component {
                                 email === '' ||
                                 passwordOne === '' ||
                                 passwordOne === '' ||
-                                (passwordOne !== passwordTwo)
+                                passwordOne !== passwordTwo
                             }
                             type='submit'
                             name='sign-up'
@@ -132,13 +134,11 @@ class SignUpFormBase extends Component {
                         </button>
                     </div>
                 </form>
-                { error && (
+                {error && (
                     <div className='has-text-centered'>
-                        <a href='signup.html'>
-                            { error }
-                        </a>
+                        <a href='signup.html'>{error}</a>
                     </div>
-                ) }
+                )}
                 <div className='has-text-centered'>
                     <ButtonBackToSigin />
                 </div>
@@ -147,15 +147,13 @@ class SignUpFormBase extends Component {
     }
 }
 
-const SignUpForm = compose(
-    withRouter,
-    withFirebase
-)(SignUpFormBase)
+const SignUpForm = compose(withRouter, withFirebase)(SignUpFormBase)
 
 const SignUpLink = () => (
-
     <div className='has-text-centered'>
-        <Link to={ ROUTES.SIGN_UP } name='sign-up'>Cadastra-se</Link>
+        <Link to={ROUTES.SIGN_UP} name='sign-up'>
+            Cadastra-se
+        </Link>
     </div>
 )
 

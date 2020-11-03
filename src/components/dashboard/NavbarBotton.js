@@ -49,34 +49,34 @@ export default class NavbarBotton extends PureComponent {
                 className='navbar is-light is-fixed-bottom'
                 role='navigation'
                 aria-label='main navigation'
-                style={ {
+                style={{
                     height: isActive && '100vh',
                     overflowY: isActive && 'auto'
-                } }>
+                }}>
                 <div className='navbar-brand'>
                     <a
                         role='button'
-                        className={ `navbar-burger burger ${isActive}` }
+                        className={`navbar-burger burger ${isActive}`}
                         aria-label='menu'
                         aria-expanded='false'
                         data-target='botton-navbar'
-                        onClick={ this.handleTogleBurger }>
+                        onClick={this.handleTogleBurger}>
                         <span aria-hidden='true' />
                         <span aria-hidden='true' />
                         <span aria-hidden='true' />
                     </a>
                 </div>
-                <div id='botton-navbar' className={ `navbar-menu ${isActive}` }>
+                <div id='botton-navbar' className={`navbar-menu ${isActive}`}>
                     <div className='navbar-start'>
                         <NavbarDropdownUp
                             dateNameType='year'
-                            dates={ ['2021', '2020', '2019'] }
-                            selected={ this.state.values.year }
-                            onSelectChose={ this.handleOnChoseValue }
+                            dates={['2021', '2020', '2019']}
+                            selected={this.state.values.year}
+                            onSelectChose={this.handleOnChoseValue}
                         />
                         <NavbarDropdownUp
                             dateNameType='month'
-                            dates={ [
+                            dates={[
                                 '01',
                                 '02',
                                 '03',
@@ -89,16 +89,16 @@ export default class NavbarBotton extends PureComponent {
                                 '10',
                                 '11',
                                 '12'
-                            ] }
-                            selected={ this.state.values.month }
-                            onSelectChose={ this.handleOnSelectChose }
+                            ]}
+                            selected={this.state.values.month}
+                            onSelectChose={this.handleOnSelectChose}
                         />
                     </div>
                     <div className='navbar-end'>
                         <a
                             className='navbar-item'
                             name='do-handpoint'
-                            onClick={ this.props.handPoint }>
+                            onClick={this.props.handPoint}>
                             Novo ponto
                         </a>
                     </div>

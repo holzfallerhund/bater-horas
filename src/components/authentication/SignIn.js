@@ -54,21 +54,23 @@ class SignInFormBase extends Component {
                         className='login-logo'
                         name='login-logo'
                         alt='Logo do aplicativo'
-                        src={ logo }
+                        src={logo}
                     />
                     <h1 className='title is-2'>Acesse o sistema</h1>
                 </div>
-                <form onSubmit={ this.onSubmit }>
+                <form onSubmit={this.onSubmit}>
                     <div className='field'>
-                        <label className='label' htmlFor='email'>E-mail</label>
+                        <label className='label' htmlFor='email'>
+                            E-mail
+                        </label>
                         <div className='control has-icons-right'>
                             <input
                                 id='email'
                                 name='email'
                                 className='input'
                                 type='email'
-                                value={ email }
-                                onChange={ this.onChange }
+                                value={email}
+                                onChange={this.onChange}
                             />
                             <span className='icon is-small is-right'>
                                 envelope
@@ -76,15 +78,17 @@ class SignInFormBase extends Component {
                         </div>
                     </div>
                     <div className='field'>
-                        <label className='label' htmlFor='password'>Senha</label>
+                        <label className='label' htmlFor='password'>
+                            Senha
+                        </label>
                         <div className='control has-icons-right'>
                             <input
                                 id='password'
                                 name='password'
                                 className='input'
                                 type='password'
-                                value={ password }
-                                onChange={ this.onChange }
+                                value={password}
+                                onChange={this.onChange}
                             />
                             <span className='icon is-small is-right'>
                                 chave
@@ -93,9 +97,7 @@ class SignInFormBase extends Component {
                     </div>
                     <div className='has-text-centered'>
                         <button
-                            disabled={
-                                email === '' || password === ''
-                            }
+                            disabled={email === '' || password === ''}
                             type='submit'
                             name='login'
                             className='button is-vcentered is-primary is-outlined'>
@@ -105,16 +107,13 @@ class SignInFormBase extends Component {
                 </form>
                 <PasswordForgetLink />
                 <SignUpLink />
-                { error && 'Deu ruim' }
+                {error && 'Deu ruim'}
             </LoginWrapper>
         )
     }
 }
 
-const SignInForm = compose(
-    withRouter,
-    withFirebase
-)(SignInFormBase)
+const SignInForm = compose(withRouter, withFirebase)(SignInFormBase)
 
 export default SignInPage
 

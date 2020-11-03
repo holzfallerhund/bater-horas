@@ -11,10 +11,7 @@ export default class NavbarDropdownUp extends PureComponent {
         this.setState({
             isActive: !this.state.isActive
         })
-        this.props.onSelectChose(
-            this.props.dateNameType,
-            newDate
-        )
+        this.props.onSelectChose(this.props.dateNameType, newDate)
     }
 
     handleOnClick = () => {
@@ -31,20 +28,18 @@ export default class NavbarDropdownUp extends PureComponent {
                 className={
                     'navbar-item has-dropdown has-dropdown-up ' + isActive
                 }>
-                <a
-                    className='navbar-link'
-                    onClick={ this.handleOnClick }>
-                    { this.props.selected || this.props.dates[0] }
+                <a className='navbar-link' onClick={this.handleOnClick}>
+                    {this.props.selected || this.props.dates[0]}
                 </a>
                 <div className='navbar-dropdown'>
-                    { this.props.dates.map((newDate, key) => (
+                    {this.props.dates.map((newDate, key) => (
                         <a
-                            key={ key }
+                            key={key}
                             className='navbar-item'
-                            onClick={ this.handleChangeDate(newDate) }>
-                            { newDate }
+                            onClick={this.handleChangeDate(newDate)}>
+                            {newDate}
                         </a>
-                    )) }
+                    ))}
                 </div>
             </div>
         )

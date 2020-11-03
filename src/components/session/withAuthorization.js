@@ -25,9 +25,9 @@ const withAuthorization = condition => Component => {
         render() {
             return (
                 <AuthUserContext.Consumer>
-                    { authUser =>
+                    {authUser =>
                         condition(authUser) ? (
-                            <Component { ...this.props } />
+                            <Component {...this.props} />
                         ) : null
                     }
                 </AuthUserContext.Consumer>
@@ -35,10 +35,7 @@ const withAuthorization = condition => Component => {
         }
     }
 
-    return compose(
-        withRouter,
-        withFirebase
-    )(WithAuthorization)
+    return compose(withRouter, withFirebase)(WithAuthorization)
 }
 
 export default withAuthorization

@@ -33,9 +33,9 @@ class NavBar extends PureComponent {
                     <a
                         className='navbar-item'
                         name='logo'
-                        onClick={ this.handleGoHome }>
+                        onClick={this.handleGoHome}>
                         <img
-                            src={ logo }
+                            src={logo}
                             width='112'
                             height='28'
                             alt='Logo do aplicativo'
@@ -43,11 +43,11 @@ class NavBar extends PureComponent {
                     </a>
                     <a
                         role='button'
-                        className={ `navbar-burger burger ${isActive}` }
+                        className={`navbar-burger burger ${isActive}`}
                         aria-label='menu'
                         aria-expanded='false'
                         data-target='navbarBasicExample'
-                        onClick={ this.handleToggleBurger }>
+                        onClick={this.handleToggleBurger}>
                         <span aria-hidden='true' />
                         <span aria-hidden='true' />
                         <span aria-hidden='true' />
@@ -55,7 +55,7 @@ class NavBar extends PureComponent {
                 </div>
                 <div
                     id='navbarBasicExample'
-                    className={ `navbar-menu ${isActive}` }>
+                    className={`navbar-menu ${isActive}`}>
                     <div className='navbar-start'>
                         <a className='navbar-item'>
                             Olá, <UserName />
