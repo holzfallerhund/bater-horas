@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
 import { Route, BrowserRouter as Router } from 'react-router-dom'
 import { withFirebase } from './components/firebase'
-import { AuthUserContext } from '@horas/components/session'
-import 'bulma/bulma.sass'
+import { AuthUserContext } from './components/session'
 import * as ROUTES from './constants/routes'
 
 import Navigation from './components/dashboard/Navigation'

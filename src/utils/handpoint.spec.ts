@@ -1,5 +1,3 @@
-const expect = require('chai').expect
-
 import { handPointHours } from './handpoint'
 
 it('Check if do the right calc. betwen two dates', () => {
@@ -7,7 +5,7 @@ it('Check if do the right calc. betwen two dates', () => {
         { date: new Date(2019, 6, 6, 6, 6) },
         { date: new Date(2019, 6, 6, 7, 6) }
     ]
-    expect(handPointHours(apoitments)).to.be.equal(1)
+    expect(handPointHours(apoitments)).toBe(1)
 })
 
 it('Check if do the right calc. betwen four dates', () => {
@@ -17,7 +15,7 @@ it('Check if do the right calc. betwen four dates', () => {
         { date: new Date(2019, 6, 6, 7, 6) },
         { date: new Date(2019, 6, 6, 8, 6) }
     ]
-    expect(handPointHours(apoitments)).to.be.equal(2)
+    expect(handPointHours(apoitments)).toBe(2)
 })
 
 it('Check if do the right calc. betwen five dates', () => {
@@ -29,5 +27,5 @@ it('Check if do the right calc. betwen five dates', () => {
         { date: new Date(2019, 6, 6, 9, 6) }
     ]
 
-    expect(handPointHours(apoitments)).to.be.equal(2)
+    expect(handPointHours(apoitments)).toBe(2)
 })

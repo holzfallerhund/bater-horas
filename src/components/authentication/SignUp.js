@@ -2,9 +2,6 @@ import React, { Component } from 'react'
 import { Link, withRouter } from 'react-router-dom'
 import { compose } from 'recompose'
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faEnvelopeSquare, faKey, faUser } from '@fortawesome/free-solid-svg-icons'
-
 import ButtonBackToSigin from './ButtonBackToSigin'
 import { withFirebase } from '../firebase'
 import LoginWrapper from './LoginWrapper'
@@ -64,7 +61,7 @@ class SignUpFormBase extends Component {
                                 onChange={ this.onChange }
                             />
                             <span className='icon is-small is-right'>
-                                <FontAwesomeIcon icon={ faEnvelopeSquare } />
+                                envelope
                             </span>
                         </div>
                     </div>
@@ -80,7 +77,7 @@ class SignUpFormBase extends Component {
                                 onChange={ this.onChange }
                             />
                             <span className='icon is-small is-right'>
-                                <FontAwesomeIcon icon={ faUser } />
+                                user
                             </span>
                         </div>
                     </div>
@@ -96,7 +93,7 @@ class SignUpFormBase extends Component {
                                 onChange={ this.onChange }
                             />
                             <span className='icon is-small is-right'>
-                                <FontAwesomeIcon icon={ faKey } />
+                                chave
                             </span>
                         </div>
                     </div>
@@ -116,7 +113,7 @@ class SignUpFormBase extends Component {
                                 onChange={ this.onChange }
                             />
                             <span className='icon is-small is-right'>
-                                <FontAwesomeIcon icon={ faKey } />
+                                chave
                             </span>
                         </div>
                     </div>

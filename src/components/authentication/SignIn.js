@@ -2,17 +2,12 @@ import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
 import { compose } from 'recompose'
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faEnvelopeSquare, faKey } from '@fortawesome/free-solid-svg-icons'
-
 import logo from '../../assets/relogio.svg'
 import { SignUpLink } from './SignUp'
 import { PasswordForgetLink } from './ForgetPassword'
 import { withFirebase } from '../firebase'
 import * as ROUTES from '../../constants/routes'
 import LoginWrapper from './LoginWrapper'
-
-import SignInToastWithMessageContext from '../toast/toastWithMessageContext'
 
 const SignInPage = () => <SignInForm />
 
@@ -76,7 +71,7 @@ class SignInFormBase extends Component {
                                 onChange={ this.onChange }
                             />
                             <span className='icon is-small is-right'>
-                                <FontAwesomeIcon icon={ faEnvelopeSquare } />
+                                envelope
                             </span>
                         </div>
                     </div>
@@ -92,7 +87,7 @@ class SignInFormBase extends Component {
                                 onChange={ this.onChange }
                             />
                             <span className='icon is-small is-right'>
-                                <FontAwesomeIcon icon={ faKey } />
+                                chave
                             </span>
                         </div>
                     </div>
@@ -110,11 +105,7 @@ class SignInFormBase extends Component {
                 </form>
                 <PasswordForgetLink />
                 <SignUpLink />
-                { error && (
-                    <SignInToastWithMessageContext
-                        error={ error }
-                    />
-                ) }
+                { error && 'Deu ruim' }
             </LoginWrapper>
         )
     }
